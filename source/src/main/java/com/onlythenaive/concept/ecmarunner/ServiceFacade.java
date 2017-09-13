@@ -1,5 +1,7 @@
 package com.onlythenaive.concept.ecmarunner;
 
+import com.onlythenaive.concept.ecmarunner.internal.ExecutionInvoiceBuilderImpl;
+
 /**
  * Service provider.
  *
@@ -17,8 +19,7 @@ public final class ServiceFacade {
      * @see ExecutionInvoiceBuilder
      */
     public static ExecutionInvoiceBuilder invoiceBuilder() {
-        // TODO: implement builder creation
-        throw new UnsupportedOperationException();
+        return new ExecutionInvoiceBuilderImpl();
     }
 
     /**

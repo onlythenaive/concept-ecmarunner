@@ -1,12 +1,16 @@
 package com.onlythenaive.concept.ecmarunner;
 
+import org.junit.Assert;
 import org.junit.Test;
+
+import com.onlythenaive.concept.ecmarunner.internal.ExecutionInvoiceBuilderImpl;
 
 public class ServiceFacadeTest {
 
-    @Test(expected = UnsupportedOperationException.class)
+    @Test()
     public void createNewInvoiceBuilder() {
-        ServiceFacade.invoiceBuilder();
+        ExecutionInvoiceBuilder builder = ServiceFacade.invoiceBuilder();
+        Assert.assertTrue(builder instanceof ExecutionInvoiceBuilderImpl);
     }
 
     @Test(expected = UnsupportedOperationException.class)
