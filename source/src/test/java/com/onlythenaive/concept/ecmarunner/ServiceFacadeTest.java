@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import com.onlythenaive.concept.ecmarunner.internal.ExecutionInvoiceBuilderImpl;
 import com.onlythenaive.concept.ecmarunner.internal.ExecutionInvoiceParserImpl;
+import com.onlythenaive.concept.ecmarunner.internal.ExecutionSandboxFactoryImpl;
 
 public class ServiceFacadeTest {
 
@@ -20,8 +21,9 @@ public class ServiceFacadeTest {
         Assert.assertTrue(parser instanceof ExecutionInvoiceParserImpl);
     }
 
-    @Test(expected = UnsupportedOperationException.class)
+    @Test()
     public void createNewSandboxFactory() {
-        ServiceFacade.sandboxFactory();
+        ExecutionSandboxFactory factory = ServiceFacade.sandboxFactory();
+        Assert.assertTrue(factory instanceof ExecutionSandboxFactoryImpl);
     }
 }

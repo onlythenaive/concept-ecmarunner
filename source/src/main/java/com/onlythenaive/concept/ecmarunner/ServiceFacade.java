@@ -2,6 +2,7 @@ package com.onlythenaive.concept.ecmarunner;
 
 import com.onlythenaive.concept.ecmarunner.internal.ExecutionInvoiceBuilderImpl;
 import com.onlythenaive.concept.ecmarunner.internal.ExecutionInvoiceParserImpl;
+import com.onlythenaive.concept.ecmarunner.internal.ExecutionSandboxFactoryImpl;
 
 /**
  * Service provider.
@@ -42,8 +43,7 @@ public final class ServiceFacade {
      * @see ExecutionSandboxFactory
      */
     public static ExecutionSandboxFactory sandboxFactory() {
-        // TODO: implement factory creation
-        throw new UnsupportedOperationException();
+        return new ExecutionSandboxFactoryImpl();
     }
 
     private ServiceFacade() {
