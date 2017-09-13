@@ -18,7 +18,7 @@ public class ExecutionResultImplTest {
 
     @Before
     public void beforeClass() {
-        invoice = ServiceFacade.invoiceBuilder().addScript("").build();
+        invoice = ServiceFacade.invoiceBuilder().script("").build();
         outputs = Arrays.asList("", "", "");
         terminationType = ExecutionTerminationType.SUCCESS;
     }

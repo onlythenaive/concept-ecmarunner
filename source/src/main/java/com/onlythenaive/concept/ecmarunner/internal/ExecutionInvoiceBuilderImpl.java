@@ -1,8 +1,5 @@
 package com.onlythenaive.concept.ecmarunner.internal;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.onlythenaive.concept.ecmarunner.ExecutionInvoice;
 import com.onlythenaive.concept.ecmarunner.ExecutionInvoiceBuilder;
 import com.onlythenaive.concept.ecmarunner.InternalImplementation;
@@ -12,16 +9,10 @@ public final class ExecutionInvoiceBuilderImpl implements ExecutionInvoiceBuilde
 
     private String description = "";
     private boolean restricted = true;
-    private List<String> scripts = new ArrayList<>();
+    private String script = null;
     private boolean timeoutEnabled = true;
     private int timeoutInMilliseconds = 10 * 1000;
     private String version = "1.0";
-
-    @Override
-    public ExecutionInvoiceBuilder addScript(final String script) {
-        this.scripts.add(script);
-        return this;
-    }
 
     @Override
     public ExecutionInvoiceBuilder description(final String description) {
@@ -32,6 +23,12 @@ public final class ExecutionInvoiceBuilderImpl implements ExecutionInvoiceBuilde
     @Override
     public ExecutionInvoiceBuilder restricted(final boolean restricted) {
         this.restricted = restricted;
+        return this;
+    }
+
+    @Override
+    public ExecutionInvoiceBuilder script(final String script) {
+        this.script = script;
         return this;
     }
 
@@ -58,7 +55,7 @@ public final class ExecutionInvoiceBuilderImpl implements ExecutionInvoiceBuilde
         return new ExecutionInvoiceImpl(
                 description,
                 restricted,
-                scripts,
+                script,
                 timeoutEnabled,
                 timeoutInMilliseconds,
                 version

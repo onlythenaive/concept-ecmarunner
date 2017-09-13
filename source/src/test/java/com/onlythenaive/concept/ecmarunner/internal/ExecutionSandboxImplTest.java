@@ -26,7 +26,7 @@ public class ExecutionSandboxImplTest {
                 return null;
             }
         };
-        INVOICE = ServiceFacade.invoiceBuilder().addScript("").build();
+        INVOICE = ServiceFacade.invoiceBuilder().script("").build();
     }
 
     private ExecutionSandbox sandbox;

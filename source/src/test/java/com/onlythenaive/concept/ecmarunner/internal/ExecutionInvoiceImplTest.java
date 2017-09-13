@@ -10,7 +10,7 @@ public class ExecutionInvoiceImplTest {
 
     private static String description = "";
     private static boolean restricted = false;
-    private static List<String> scripts = Arrays.asList("1");
+    private static String script = "1";
     private static boolean timeoutEnabled = false;
     private static int timeoutInMilliseconds = 0;
     private static String version = "1.0";
@@ -20,7 +20,7 @@ public class ExecutionInvoiceImplTest {
         new ExecutionInvoiceImpl(
                 description,
                 restricted,
-                scripts,
+                script,
                 timeoutEnabled,
                 timeoutInMilliseconds,
                 version);
@@ -38,22 +38,11 @@ public class ExecutionInvoiceImplTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void failOnEmptyScripts() {
-        new ExecutionInvoiceImpl(
-                description,
-                restricted,
-                new ArrayList<>(),
-                timeoutEnabled,
-                timeoutInMilliseconds,
-                version);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
     public void failOnNegativeTimeout() {
         new ExecutionInvoiceImpl(
                 description,
                 restricted,
-                scripts,
+                script,
                 timeoutEnabled,
                 -1,
                 version);
@@ -64,7 +53,7 @@ public class ExecutionInvoiceImplTest {
         new ExecutionInvoiceImpl(
                 description,
                 restricted,
-                scripts,
+                script,
                 timeoutEnabled,
                 timeoutInMilliseconds,
                 null);
@@ -75,7 +64,7 @@ public class ExecutionInvoiceImplTest {
         new ExecutionInvoiceImpl(
                 description,
                 restricted,
-                scripts,
+                script,
                 timeoutEnabled,
                 timeoutInMilliseconds,
                 "");

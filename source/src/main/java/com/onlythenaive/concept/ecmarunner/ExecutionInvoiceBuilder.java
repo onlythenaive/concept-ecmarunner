@@ -11,14 +11,6 @@ package com.onlythenaive.concept.ecmarunner;
 public interface ExecutionInvoiceBuilder {
 
     /**
-     * Adds a new script to the invoice.
-     *
-     * @param script a new ECMA script.
-     * @return this invoice builder.
-     */
-    ExecutionInvoiceBuilder addScript(String script);
-
-    /**
      * Sets the description for an invoice.
      *
      * @param description invoice description (optional).
@@ -33,6 +25,14 @@ public interface ExecutionInvoiceBuilder {
      * @return this invoice builder.
      */
     ExecutionInvoiceBuilder restricted(boolean restricted);
+
+    /**
+     * Sets a script to the invoice.
+     *
+     * @param script an ECMA script.
+     * @return this invoice builder.
+     */
+    ExecutionInvoiceBuilder script(String script);
 
     /**
      * Enables or disables the timeout for an invoice.

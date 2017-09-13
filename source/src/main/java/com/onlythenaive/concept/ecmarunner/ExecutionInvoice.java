@@ -1,11 +1,9 @@
 package com.onlythenaive.concept.ecmarunner;
 
-import java.util.List;
-
 /**
- * Script(s) execution invoice API.
+ * Script execution invoice API.
  *
- * Contains all the details required to execute contained script(s). Designed to have immutable implementations.
+ * Contains all the details required to execute contained script. Designed to have immutable implementations.
  *
  * @see ExecutionInvoiceBuilder
  * @see ExecutionInvoiceParser
@@ -30,11 +28,11 @@ public interface ExecutionInvoice {
     boolean isRestricted();
 
     /**
-     * Gets a list of the scripts to be executed in this invoice.
+     * Gets a script to be executed in this invoice.
      *
-     * @return list of the scripts (copy).
+     * @return target script.
      */
-    List<String> getScripts();
+    String getScript();
 
     /**
      * Checks if this invoice execution is bound to a specific timeout.
