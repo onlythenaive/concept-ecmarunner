@@ -1,6 +1,7 @@
 package com.onlythenaive.concept.ecmarunner;
 
 import com.onlythenaive.concept.ecmarunner.internal.ExecutionInvoiceBuilderImpl;
+import com.onlythenaive.concept.ecmarunner.internal.ExecutionInvoiceParserImpl;
 
 /**
  * Service provider.
@@ -30,8 +31,7 @@ public final class ServiceFacade {
      * @see ExecutionInvoiceParser
      */
     public static ExecutionInvoiceParser invoiceParser() {
-        // TODO: implement parser creation
-        throw new UnsupportedOperationException();
+        return new ExecutionInvoiceParserImpl();
     }
 
     /**

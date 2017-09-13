@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import com.onlythenaive.concept.ecmarunner.internal.ExecutionInvoiceBuilderImpl;
+import com.onlythenaive.concept.ecmarunner.internal.ExecutionInvoiceParserImpl;
 
 public class ServiceFacadeTest {
 
@@ -13,9 +14,10 @@ public class ServiceFacadeTest {
         Assert.assertTrue(builder instanceof ExecutionInvoiceBuilderImpl);
     }
 
-    @Test(expected = UnsupportedOperationException.class)
+    @Test()
     public void createNewInvoiceParser() {
-        ServiceFacade.invoiceParser();
+        ExecutionInvoiceParser parser = ServiceFacade.invoiceParser();
+        Assert.assertTrue(parser instanceof ExecutionInvoiceParserImpl);
     }
 
     @Test(expected = UnsupportedOperationException.class)
