@@ -3,11 +3,12 @@ package com.onlythenaive.concept.ecmarunner.internal;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
 
 import com.onlythenaive.concept.ecmarunner.ExecutionInvoice;
 import com.onlythenaive.concept.ecmarunner.ExecutionTerminationType;
+import com.onlythenaive.concept.ecmarunner.ServiceFacade;
 
 public class ExecutionResultImplTest {
 
@@ -15,9 +16,9 @@ public class ExecutionResultImplTest {
     private List<String> outputs;
     private ExecutionTerminationType terminationType;
 
-    @BeforeClass
+    @Before
     public void beforeClass() {
-        invoice = null;
+        invoice = ServiceFacade.invoiceBuilder().addScript("").build();
         outputs = Arrays.asList("", "", "");
         terminationType = ExecutionTerminationType.SUCCESS;
     }
