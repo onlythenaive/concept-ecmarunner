@@ -1,2 +1,1 @@
-# concept-ecmarunner
-Concept: ECMA Runner
+# Concept: ECMA Runner
