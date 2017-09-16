@@ -9,7 +9,7 @@ import org.junit.Test;
 import com.onlythenaive.concept.ecmarunner.api.Invoice;
 import com.onlythenaive.concept.ecmarunner.api.ResultValueType;
 import com.onlythenaive.concept.ecmarunner.api.TerminationType;
-import com.onlythenaive.concept.ecmarunner.facade.ServiceFacade;
+import com.onlythenaive.concept.ecmarunner.facade.InvoiceBuilderFacade;
 
 public class ResultImplTest {
 
@@ -22,7 +22,7 @@ public class ResultImplTest {
     @Before
     public void beforeClass() {
         console = Arrays.asList("", "", "");
-        invoice = ServiceFacade.invoiceBuilder().script("").build();
+        invoice = InvoiceBuilderFacade.builder().script("").build();
         terminationType = TerminationType.SUCCESS;
         value = null;
         valueType = ResultValueType.NULL;

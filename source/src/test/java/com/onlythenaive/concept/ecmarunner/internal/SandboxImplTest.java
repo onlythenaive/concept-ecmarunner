@@ -8,7 +8,7 @@ import com.onlythenaive.concept.ecmarunner.api.Invoice;
 import com.onlythenaive.concept.ecmarunner.api.Result;
 import com.onlythenaive.concept.ecmarunner.api.Sandbox;
 import com.onlythenaive.concept.ecmarunner.api.TerminationType;
-import com.onlythenaive.concept.ecmarunner.facade.ServiceFacade;
+import com.onlythenaive.concept.ecmarunner.facade.InvoiceBuilderFacade;
 
 public class SandboxImplTest {
 
@@ -16,7 +16,7 @@ public class SandboxImplTest {
 
     @BeforeClass
     public static void initPreconditions() {
-        INVOICE = ServiceFacade.invoiceBuilder().script("").build();
+        INVOICE = InvoiceBuilderFacade.builder().script("").build();
     }
 
     private Sandbox sandbox;

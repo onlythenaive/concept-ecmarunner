@@ -1,8 +1,6 @@
 package com.onlythenaive.concept.ecmarunner.facade;
 
-import com.onlythenaive.concept.ecmarunner.api.InvoiceBuilder;
 import com.onlythenaive.concept.ecmarunner.api.SandboxFactory;
-import com.onlythenaive.concept.ecmarunner.internal.invoice.InvoiceBuilderImpl;
 import com.onlythenaive.concept.ecmarunner.internal.SandboxFactoryImpl;
 
 /**
@@ -13,17 +11,6 @@ import com.onlythenaive.concept.ecmarunner.internal.SandboxFactoryImpl;
  * @author Ilia Gubarev
  */
 public final class ServiceFacade {
-
-    /**
-     * Creates a new execution invoice builder.
-     *
-     * @return new invoice builder.
-     *
-     * @see InvoiceBuilder
-     */
-    public static InvoiceBuilder invoiceBuilder() {
-        return new InvoiceBuilderImpl();
-    }
 
     /**
      * Creates a new execution sandbox factory.
