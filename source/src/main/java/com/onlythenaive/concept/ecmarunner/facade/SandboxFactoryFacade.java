@@ -1,29 +1,31 @@
 package com.onlythenaive.concept.ecmarunner.facade;
 
 import com.onlythenaive.concept.ecmarunner.api.SandboxFactory;
+import com.onlythenaive.concept.ecmarunner.convention.ImplementationFacade;
 import com.onlythenaive.concept.ecmarunner.internal.SandboxFactoryImpl;
 
 /**
- * Service provider.
+ * Implementation facade for sandbox factories.
  *
- * Acts as a facade for accessing API implementations.
+ * @see SandboxFactory
  *
  * @author Ilia Gubarev
  */
-public final class ServiceFacade {
+@ImplementationFacade
+public final class SandboxFactoryFacade {
 
     /**
-     * Creates a new execution sandbox factory.
+     * Creates a new Nashorn-based execution sandbox factory.
      *
      * @return new sandbox factory.
      *
      * @see SandboxFactory
      */
-    public static SandboxFactory sandboxFactory() {
+    public static SandboxFactory nashornSandboxFactory() {
         return new SandboxFactoryImpl();
     }
 
-    private ServiceFacade() {
+    private SandboxFactoryFacade() {
 
     }
 }
