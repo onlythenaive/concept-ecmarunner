@@ -4,7 +4,7 @@ import com.onlythenaive.concept.ecmarunner.api.InvoiceBuilder;
 import com.onlythenaive.concept.ecmarunner.api.InvoiceParser;
 import com.onlythenaive.concept.ecmarunner.api.SandboxFactory;
 import com.onlythenaive.concept.ecmarunner.internal.InvoiceBuilderImpl;
-import com.onlythenaive.concept.ecmarunner.internal.InvoiceParserImpl;
+import com.onlythenaive.concept.ecmarunner.internal.InvoiceParserJsonImpl;
 import com.onlythenaive.concept.ecmarunner.internal.SandboxFactoryImpl;
 
 /**
@@ -35,7 +35,7 @@ public final class ServiceFacade {
      * @see InvoiceParser
      */
     public static InvoiceParser invoiceParser() {
-        return new InvoiceParserImpl();
+        return new InvoiceParserJsonImpl();
     }
 
     /**

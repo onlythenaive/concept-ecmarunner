@@ -3,7 +3,7 @@ package com.onlythenaive.concept.ecmarunner.api;
 import java.util.List;
 
 /**
- * Execution invoice JSON parser API.
+ * Execution invoice parser API.
  *
  * @see InvoiceBuilder
  *
@@ -12,10 +12,10 @@ import java.util.List;
 public interface InvoiceParser {
 
     /**
-     * Converts a JSON input to a list of execution invoices.
+     * Converts a text input to a list of execution invoices.
      *
-     * @param invoiceJson a JSON input.
+     * @param invoiceString a text invoice representation.
      * @return a list of execution invoices.
      */
-    List<Invoice> parse(String invoiceJson);
+    List<Invoice> parse(String invoiceString);
 }

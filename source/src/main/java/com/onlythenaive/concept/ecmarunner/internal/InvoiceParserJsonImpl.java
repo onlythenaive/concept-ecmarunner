@@ -7,11 +7,11 @@ import com.onlythenaive.concept.ecmarunner.api.InvoiceParser;
 import com.onlythenaive.concept.ecmarunner.convention.InternalImplementation;
 
 @InternalImplementation
-public final class InvoiceParserImpl implements InvoiceParser {
+public final class InvoiceParserJsonImpl implements InvoiceParser {
 
     @Override
-    public List<Invoice> parse(final String invoiceJson) {
-        if (invoiceJson == null) {
+    public List<Invoice> parse(final String invoiceString) {
+        if (invoiceString == null) {
             throw new NullPointerException("Invoice JSON cannot be null");
         }
         // TODO: implement invoice parsing
