@@ -1,6 +1,8 @@
 package com.onlythenaive.concept.ecmarunner.internal;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
@@ -20,6 +22,12 @@ public final class ExecutionSandboxImpl implements ExecutionSandbox {
 
     public ExecutionSandboxImpl() {
         this.engine = new ScriptEngineManager().getEngineByName("nashorn");
+    }
+
+    @Override
+    public List<String> console() {
+        // TODO: return a real console output
+        return new ArrayList<>();
     }
 
     @Override
