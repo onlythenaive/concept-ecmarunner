@@ -12,6 +12,7 @@ import com.onlythenaive.concept.ecmarunner.ExecutionInvoice;
 import com.onlythenaive.concept.ecmarunner.ExecutionResult;
 import com.onlythenaive.concept.ecmarunner.ExecutionResultValueType;
 import com.onlythenaive.concept.ecmarunner.ExecutionSandbox;
+import com.onlythenaive.concept.ecmarunner.ExecutionSandboxInspector;
 import com.onlythenaive.concept.ecmarunner.ExecutionTerminationType;
 import com.onlythenaive.concept.ecmarunner.InternalImplementation;
 
@@ -49,5 +50,10 @@ public final class ExecutionSandboxImpl implements ExecutionSandbox {
                 null,
                 ExecutionResultValueType.NULL
         );
+    }
+
+    @Override
+    public <T> T inspect(ExecutionSandboxInspector<T> inspector) {
+        return inspector.apply(engine);
     }
 }

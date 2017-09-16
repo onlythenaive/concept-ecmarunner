@@ -26,4 +26,15 @@ public interface ExecutionSandbox {
      * @see ExecutionResult
      */
     ExecutionResult execute(ExecutionInvoice invoice);
+
+    /**
+     * Inspects an internal state of the sandbox.
+     *
+     * @param inspector specific implementation of inspector.
+     * @param <T> inspection result type.
+     * @return inspection result.
+     *
+     * @see ExecutionSandboxInspector
+     */
+    <T> T inspect(ExecutionSandboxInspector<T> inspector);
 }
