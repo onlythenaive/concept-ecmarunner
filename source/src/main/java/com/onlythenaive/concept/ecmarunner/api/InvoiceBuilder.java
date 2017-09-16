@@ -47,7 +47,7 @@ public interface InvoiceBuilder {
      * @param timeoutInMilliseconds execution invoice timeout (in milliseconds).
      * @return this invoice builder.
      */
-    InvoiceBuilder timeoutInMilliseconds(int timeoutInMilliseconds);
+    InvoiceBuilder timeoutInMilliseconds(long timeoutInMilliseconds);
 
     /**
      * Sets the version for an invoice.

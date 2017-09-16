@@ -1,8 +1,8 @@
-package com.onlythenaive.concept.ecmarunner.internal.invoice;
+package com.onlythenaive.concept.ecmarunner.api;
 
 import org.junit.Test;
 
-public class InvoiceImplTest {
+public class InvoiceTest {
 
     private static String description = "";
     private static boolean restricted = false;
@@ -13,7 +13,7 @@ public class InvoiceImplTest {
 
     @Test
     public void createNewInvoice() {
-        new InvoiceImpl(
+        new Invoice(
                 description,
                 restricted,
                 script,
@@ -24,7 +24,7 @@ public class InvoiceImplTest {
 
     @Test(expected = NullPointerException.class)
     public void failOnNullScripts() {
-        new InvoiceImpl(
+        new Invoice(
                 description,
                 restricted,
                 null,
@@ -35,7 +35,7 @@ public class InvoiceImplTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void failOnNegativeTimeout() {
-        new InvoiceImpl(
+        new Invoice(
                 description,
                 restricted,
                 script,
@@ -46,7 +46,7 @@ public class InvoiceImplTest {
 
     @Test(expected = NullPointerException.class)
     public void failOnNullVersion() {
-        new InvoiceImpl(
+        new Invoice(
                 description,
                 restricted,
                 script,
@@ -57,7 +57,7 @@ public class InvoiceImplTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void failOnEmptyVersion() {
-        new InvoiceImpl(
+        new Invoice(
                 description,
                 restricted,
                 script,

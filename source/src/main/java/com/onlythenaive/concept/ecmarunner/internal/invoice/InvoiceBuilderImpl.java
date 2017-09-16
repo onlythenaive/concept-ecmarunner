@@ -11,7 +11,7 @@ public final class InvoiceBuilderImpl implements InvoiceBuilder {
     private boolean restricted = true;
     private String script = null;
     private boolean timeoutEnabled = true;
-    private int timeoutInMilliseconds = 10 * 1000;
+    private long timeoutInMilliseconds = 10 * 1000;
     private String version = "1.0";
 
     @Override
@@ -39,7 +39,7 @@ public final class InvoiceBuilderImpl implements InvoiceBuilder {
     }
 
     @Override
-    public InvoiceBuilder timeoutInMilliseconds(final int timeoutInMilliseconds) {
+    public InvoiceBuilder timeoutInMilliseconds(final long timeoutInMilliseconds) {
         this.timeoutInMilliseconds = timeoutInMilliseconds;
         return this;
     }
@@ -52,7 +52,7 @@ public final class InvoiceBuilderImpl implements InvoiceBuilder {
 
     @Override
     public Invoice build() {
-        return new InvoiceImpl(
+        return new Invoice(
                 description,
                 restricted,
                 script,
