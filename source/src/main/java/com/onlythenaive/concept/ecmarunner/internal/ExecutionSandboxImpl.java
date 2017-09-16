@@ -8,6 +8,7 @@ import javax.script.ScriptException;
 
 import com.onlythenaive.concept.ecmarunner.ExecutionInvoice;
 import com.onlythenaive.concept.ecmarunner.ExecutionResult;
+import com.onlythenaive.concept.ecmarunner.ExecutionResultValueType;
 import com.onlythenaive.concept.ecmarunner.ExecutionSandbox;
 import com.onlythenaive.concept.ecmarunner.ExecutionTerminationType;
 import com.onlythenaive.concept.ecmarunner.InternalImplementation;
@@ -34,9 +35,11 @@ public final class ExecutionSandboxImpl implements ExecutionSandbox {
 
         // TODO: implement invoice execution
         return new ExecutionResultImpl(
-                invoice,
                 Arrays.asList("output 1", "output 2"),
-                ExecutionTerminationType.SUCCESS
+                invoice,
+                ExecutionTerminationType.SUCCESS,
+                null,
+                ExecutionResultValueType.NULL
         );
     }
 }

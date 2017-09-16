@@ -7,54 +7,78 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.onlythenaive.concept.ecmarunner.ExecutionInvoice;
+import com.onlythenaive.concept.ecmarunner.ExecutionResultValueType;
 import com.onlythenaive.concept.ecmarunner.ExecutionTerminationType;
 import com.onlythenaive.concept.ecmarunner.ServiceFacade;
 
 public class ExecutionResultImplTest {
 
+    private List<String> console;
     private ExecutionInvoice invoice;
-    private List<String> outputs;
     private ExecutionTerminationType terminationType;
+    private Object value;
+    private ExecutionResultValueType valueType;
 
     @Before
     public void beforeClass() {
+        console = Arrays.asList("", "", "");
         invoice = ServiceFacade.invoiceBuilder().script("").build();
-        outputs = Arrays.asList("", "", "");
         terminationType = ExecutionTerminationType.SUCCESS;
+        value = null;
+        valueType = ExecutionResultValueType.NULL;
     }
 
     @Test
     public void createNewResult() {
         new ExecutionResultImpl(
+                console,
                 invoice,
-                outputs,
-                terminationType
+                terminationType,
+                value,
+                valueType
+        );
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void failOnNullConsole() {
+        new ExecutionResultImpl(
+                null,
+                invoice,
+                terminationType,
+                value,
+                valueType
         );
     }
 
     @Test(expected = NullPointerException.class)
     public void failOnNullInvoice() {
         new ExecutionResultImpl(
+                console,
                 null,
-                outputs,
-                terminationType
+                terminationType,
+                value,
+                valueType
         );
     }
 
     @Test(expected = NullPointerException.class)
-    public void failOnNullOutputs() {
+    public void failOnNullTerminationType() {
         new ExecutionResultImpl(
+                console,
                 invoice,
                 null,
-                terminationType
+                value,
+                valueType
         );
     }
 
     @Test(expected = NullPointerException.class)
-    public void failOnNullType() {
+    public void failOnNullValueType() {
         new ExecutionResultImpl(
+                console,
                 invoice,
-                outputs,
+                terminationType,
+                value,
                 null
         );
     }

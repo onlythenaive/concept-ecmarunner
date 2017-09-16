@@ -15,6 +15,13 @@ import java.util.List;
 public interface ExecutionResult {
 
     /**
+     * Gets a list of console output lines which were produced during execution of the invoice.
+     *
+     * @return list of console output lines.
+     */
+    List<String> getConsole();
+
+    /**
      * Related execution invoice
      *
      * @return execution invoice.
@@ -24,13 +31,6 @@ public interface ExecutionResult {
     ExecutionInvoice getInvoice();
 
     /**
-     * Gets a list of lines which were produced by execution as an output.
-     *
-     * @return list of output lines.
-     */
-    List<String> getOutputs();
-
-    /**
      * Gets the type of execution termination.
      *
      * @return termination type.
@@ -38,4 +38,20 @@ public interface ExecutionResult {
      * @see ExecutionTerminationType
      */
     ExecutionTerminationType getTerminationType();
+
+    /**
+     * Gets a resulting value of this execution if any.
+     *
+     * @return execution result value or <code>null</code>.
+     */
+    Object getValue();
+
+    /**
+     * Gets the type of this execution result value
+     *
+     * @return result value type.
+     *
+     * @see ExecutionResultValueType
+     */
+    ExecutionResultValueType getValueType();
 }
