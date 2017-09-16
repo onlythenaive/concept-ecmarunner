@@ -2,7 +2,7 @@ package com.onlythenaive.concept.ecmarunner.internal;
 
 import com.onlythenaive.concept.ecmarunner.ExecutionSandbox;
 import com.onlythenaive.concept.ecmarunner.ExecutionSandboxFactory;
-import com.onlythenaive.concept.ecmarunner.InternalImplementation;
+import com.onlythenaive.concept.ecmarunner.convention.InternalImplementation;
 
 
 @InternalImplementation

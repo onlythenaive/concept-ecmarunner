@@ -14,7 +14,7 @@ import com.onlythenaive.concept.ecmarunner.ExecutionResultValueType;
 import com.onlythenaive.concept.ecmarunner.ExecutionSandbox;
 import com.onlythenaive.concept.ecmarunner.ExecutionSandboxInspector;
 import com.onlythenaive.concept.ecmarunner.ExecutionTerminationType;
-import com.onlythenaive.concept.ecmarunner.InternalImplementation;
+import com.onlythenaive.concept.ecmarunner.convention.InternalImplementation;
 
 @InternalImplementation
 public final class ExecutionSandboxImpl implements ExecutionSandbox {

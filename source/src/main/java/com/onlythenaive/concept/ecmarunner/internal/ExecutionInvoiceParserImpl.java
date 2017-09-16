@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.onlythenaive.concept.ecmarunner.ExecutionInvoice;
 import com.onlythenaive.concept.ecmarunner.ExecutionInvoiceParser;
-import com.onlythenaive.concept.ecmarunner.InternalImplementation;
+import com.onlythenaive.concept.ecmarunner.convention.InternalImplementation;
 
 @InternalImplementation
 public final class ExecutionInvoiceParserImpl implements ExecutionInvoiceParser {

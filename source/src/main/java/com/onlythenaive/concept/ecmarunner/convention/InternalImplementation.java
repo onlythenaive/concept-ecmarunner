@@ -1,4 +1,4 @@
-package com.onlythenaive.concept.ecmarunner;
+package com.onlythenaive.concept.ecmarunner.convention;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
