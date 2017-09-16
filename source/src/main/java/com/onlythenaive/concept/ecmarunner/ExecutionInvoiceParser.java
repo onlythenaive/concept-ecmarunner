@@ -6,7 +6,6 @@ import java.util.List;
  * Execution invoice JSON parser API.
  *
  * @see ExecutionInvoiceBuilder
- * @see ServiceFacade
  *
  * @author Ilia Gubarev
  */

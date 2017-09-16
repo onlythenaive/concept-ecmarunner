@@ -9,7 +9,7 @@ import org.junit.Test;
 import com.onlythenaive.concept.ecmarunner.ExecutionInvoice;
 import com.onlythenaive.concept.ecmarunner.ExecutionResultValueType;
 import com.onlythenaive.concept.ecmarunner.ExecutionTerminationType;
-import com.onlythenaive.concept.ecmarunner.ServiceFacade;
+import com.onlythenaive.concept.ecmarunner.facade.ServiceFacade;
 
 public class ExecutionResultImplTest {
 
