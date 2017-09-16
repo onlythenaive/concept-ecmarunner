@@ -2,7 +2,7 @@ package com.onlythenaive.concept.ecmarunner.internal;
 
 import org.junit.Test;
 
-public class ExecutionInvoiceImplTest {
+public class InvoiceImplTest {
 
     private static String description = "";
     private static boolean restricted = false;
@@ -13,7 +13,7 @@ public class ExecutionInvoiceImplTest {
 
     @Test
     public void createNewInvoice() {
-        new ExecutionInvoiceImpl(
+        new InvoiceImpl(
                 description,
                 restricted,
                 script,
@@ -24,7 +24,7 @@ public class ExecutionInvoiceImplTest {
 
     @Test(expected = NullPointerException.class)
     public void failOnNullScripts() {
-        new ExecutionInvoiceImpl(
+        new InvoiceImpl(
                 description,
                 restricted,
                 null,
@@ -35,7 +35,7 @@ public class ExecutionInvoiceImplTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void failOnNegativeTimeout() {
-        new ExecutionInvoiceImpl(
+        new InvoiceImpl(
                 description,
                 restricted,
                 script,
@@ -46,7 +46,7 @@ public class ExecutionInvoiceImplTest {
 
     @Test(expected = NullPointerException.class)
     public void failOnNullVersion() {
-        new ExecutionInvoiceImpl(
+        new InvoiceImpl(
                 description,
                 restricted,
                 script,
@@ -57,7 +57,7 @@ public class ExecutionInvoiceImplTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void failOnEmptyVersion() {
-        new ExecutionInvoiceImpl(
+        new InvoiceImpl(
                 description,
                 restricted,
                 script,

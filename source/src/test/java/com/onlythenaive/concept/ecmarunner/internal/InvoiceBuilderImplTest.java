@@ -3,16 +3,16 @@ package com.onlythenaive.concept.ecmarunner.internal;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.onlythenaive.concept.ecmarunner.api.ExecutionInvoice;
-import com.onlythenaive.concept.ecmarunner.api.ExecutionInvoiceBuilder;
+import com.onlythenaive.concept.ecmarunner.api.Invoice;
+import com.onlythenaive.concept.ecmarunner.api.InvoiceBuilder;
 
-public class ExecutionInvoiceBuilderImplTest {
+public class InvoiceBuilderImplTest {
 
     @Test
     public void createNewInvoice() {
-        ExecutionInvoiceBuilder builder = new ExecutionInvoiceBuilderImpl();
+        InvoiceBuilder builder = new InvoiceBuilderImpl();
         builder.script("some script");
-        ExecutionInvoice invoice = builder.build();
+        Invoice invoice = builder.build();
         Assert.assertEquals("", invoice.getDescription());
         Assert.assertTrue(invoice.isRestricted());
         Assert.assertTrue(invoice.getScript().equals("some script"));

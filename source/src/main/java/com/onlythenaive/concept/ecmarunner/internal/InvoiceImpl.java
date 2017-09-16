@@ -1,10 +1,10 @@
 package com.onlythenaive.concept.ecmarunner.internal;
 
-import com.onlythenaive.concept.ecmarunner.api.ExecutionInvoice;
+import com.onlythenaive.concept.ecmarunner.api.Invoice;
 import com.onlythenaive.concept.ecmarunner.convention.InternalImplementation;
 
 @InternalImplementation
-public final class ExecutionInvoiceImpl implements ExecutionInvoice {
+public final class InvoiceImpl implements Invoice {
 
     private final String description;
     private final boolean restricted;
@@ -13,12 +13,12 @@ public final class ExecutionInvoiceImpl implements ExecutionInvoice {
     private final int timeoutInMilliseconds;
     private final String version;
 
-    ExecutionInvoiceImpl(final String description,
-                         final boolean restricted,
-                         final String script,
-                         final boolean timeoutEnabled,
-                         final int timeoutInMilliseconds,
-                         final String version) {
+    InvoiceImpl(final String description,
+                final boolean restricted,
+                final String script,
+                final boolean timeoutEnabled,
+                final int timeoutInMilliseconds,
+                final String version) {
         this.description = description;
         this.restricted = restricted;
         if (script == null) {

@@ -7,7 +7,7 @@ import java.util.List;
  *
  * @author Ilia Gubarev
  */
-public interface ExecutionSandbox {
+public interface Sandbox {
 
     /**
      * Gets a list of console output lines created after the last same operation.
@@ -22,10 +22,10 @@ public interface ExecutionSandbox {
      * @param invoice execution invoice to be executed.
      * @return execution result.
      *
-     * @see ExecutionInvoice
-     * @see ExecutionResult
+     * @see Invoice
+     * @see Result
      */
-    ExecutionResult execute(ExecutionInvoice invoice);
+    Result execute(Invoice invoice);
 
     /**
      * Inspects an internal state of the sandbox.
@@ -34,7 +34,7 @@ public interface ExecutionSandbox {
      * @param <T> inspection result type.
      * @return inspection result.
      *
-     * @see ExecutionSandboxInspector
+     * @see SandboxInspector
      */
-    <T> T inspect(ExecutionSandboxInspector<T> inspector);
+    <T> T inspect(SandboxInspector<T> inspector);
 }

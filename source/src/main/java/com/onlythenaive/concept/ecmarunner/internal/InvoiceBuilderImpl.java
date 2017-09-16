@@ -1,11 +1,11 @@
 package com.onlythenaive.concept.ecmarunner.internal;
 
-import com.onlythenaive.concept.ecmarunner.api.ExecutionInvoice;
-import com.onlythenaive.concept.ecmarunner.api.ExecutionInvoiceBuilder;
+import com.onlythenaive.concept.ecmarunner.api.Invoice;
+import com.onlythenaive.concept.ecmarunner.api.InvoiceBuilder;
 import com.onlythenaive.concept.ecmarunner.convention.InternalImplementation;
 
 @InternalImplementation
-public final class ExecutionInvoiceBuilderImpl implements ExecutionInvoiceBuilder {
+public final class InvoiceBuilderImpl implements InvoiceBuilder {
 
     private String description = "";
     private boolean restricted = true;
@@ -15,44 +15,44 @@ public final class ExecutionInvoiceBuilderImpl implements ExecutionInvoiceBuilde
     private String version = "1.0";
 
     @Override
-    public ExecutionInvoiceBuilder description(final String description) {
+    public InvoiceBuilder description(final String description) {
         this.description = description;
         return this;
     }
 
     @Override
-    public ExecutionInvoiceBuilder restricted(final boolean restricted) {
+    public InvoiceBuilder restricted(final boolean restricted) {
         this.restricted = restricted;
         return this;
     }
 
     @Override
-    public ExecutionInvoiceBuilder script(final String script) {
+    public InvoiceBuilder script(final String script) {
         this.script = script;
         return this;
     }
 
     @Override
-    public ExecutionInvoiceBuilder timeoutEnabled(final boolean timeoutEnabled) {
+    public InvoiceBuilder timeoutEnabled(final boolean timeoutEnabled) {
         this.timeoutEnabled = timeoutEnabled;
         return this;
     }
 
     @Override
-    public ExecutionInvoiceBuilder timeoutInMilliseconds(final int timeoutInMilliseconds) {
+    public InvoiceBuilder timeoutInMilliseconds(final int timeoutInMilliseconds) {
         this.timeoutInMilliseconds = timeoutInMilliseconds;
         return this;
     }
 
     @Override
-    public ExecutionInvoiceBuilder version(final String version) {
+    public InvoiceBuilder version(final String version) {
         this.version = version;
         return this;
     }
 
     @Override
-    public ExecutionInvoice build() {
-        return new ExecutionInvoiceImpl(
+    public Invoice build() {
+        return new InvoiceImpl(
                 description,
                 restricted,
                 script,

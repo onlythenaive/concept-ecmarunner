@@ -7,7 +7,7 @@ package com.onlythenaive.concept.ecmarunner.api;
  *
  * @author Ilia Gubarev
  */
-public interface ExecutionSandboxInspector<T> {
+public interface SandboxInspector<T> {
 
     /**
      * Performs an inspection based on specified sandbox premises.

@@ -3,16 +3,16 @@ package com.onlythenaive.concept.ecmarunner.api;
 /**
  * Execution sandbox factory API.
  *
- * @see ExecutionSandbox
+ * @see Sandbox
  *
  * @author Ilia Gubarev
  */
-public interface ExecutionSandboxFactory {
+public interface SandboxFactory {
 
     /**
      * Creates a new execution sandbox.
      *
      * @return new execution sandbox.
      */
-    ExecutionSandbox create();
+    Sandbox create();
 }

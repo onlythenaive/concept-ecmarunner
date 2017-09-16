@@ -3,11 +3,11 @@ package com.onlythenaive.concept.ecmarunner.api;
 /**
  * Execution invoice builder API.
  *
- * @see ExecutionInvoiceParser
+ * @see InvoiceParser
  *
  * @author Ilia Gubarev
  */
-public interface ExecutionInvoiceBuilder {
+public interface InvoiceBuilder {
 
     /**
      * Sets the description for an invoice.
@@ -15,7 +15,7 @@ public interface ExecutionInvoiceBuilder {
      * @param description invoice description (optional).
      * @return this invoice builder.
      */
-    ExecutionInvoiceBuilder description(String description);
+    InvoiceBuilder description(String description);
 
     /**
      * Sets the restriction flag for an invoice.
@@ -23,7 +23,7 @@ public interface ExecutionInvoiceBuilder {
      * @param restricted <code>true</code> if execution must be restricted.
      * @return this invoice builder.
      */
-    ExecutionInvoiceBuilder restricted(boolean restricted);
+    InvoiceBuilder restricted(boolean restricted);
 
     /**
      * Sets a script to the invoice.
@@ -31,7 +31,7 @@ public interface ExecutionInvoiceBuilder {
      * @param script an ECMA script.
      * @return this invoice builder.
      */
-    ExecutionInvoiceBuilder script(String script);
+    InvoiceBuilder script(String script);
 
     /**
      * Enables or disables the timeout for an invoice.
@@ -39,7 +39,7 @@ public interface ExecutionInvoiceBuilder {
      * @param timeoutEnabled <code>true</code> if timeout is enabled.
      * @return this invoice builder.
      */
-    ExecutionInvoiceBuilder timeoutEnabled(boolean timeoutEnabled);
+    InvoiceBuilder timeoutEnabled(boolean timeoutEnabled);
 
     /**
      * Sets the timeout for an invoice.
@@ -47,7 +47,7 @@ public interface ExecutionInvoiceBuilder {
      * @param timeoutInMilliseconds execution invoice timeout (in milliseconds).
      * @return this invoice builder.
      */
-    ExecutionInvoiceBuilder timeoutInMilliseconds(int timeoutInMilliseconds);
+    InvoiceBuilder timeoutInMilliseconds(int timeoutInMilliseconds);
 
     /**
      * Sets the version for an invoice.
@@ -55,12 +55,12 @@ public interface ExecutionInvoiceBuilder {
      * @param version invoice version.
      * @return this invoice builder.
      */
-    ExecutionInvoiceBuilder version(String version);
+    InvoiceBuilder version(String version);
 
     /**
      * Creates a new execution invoice.
      *
      * @return new invoice.
      */
-    ExecutionInvoice build();
+    Invoice build();
 }

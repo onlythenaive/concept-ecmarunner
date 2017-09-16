@@ -3,26 +3,26 @@ package com.onlythenaive.concept.ecmarunner.internal;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.onlythenaive.concept.ecmarunner.api.ExecutionInvoice;
-import com.onlythenaive.concept.ecmarunner.api.ExecutionResult;
-import com.onlythenaive.concept.ecmarunner.api.ExecutionResultValueType;
-import com.onlythenaive.concept.ecmarunner.api.ExecutionTerminationType;
+import com.onlythenaive.concept.ecmarunner.api.Invoice;
+import com.onlythenaive.concept.ecmarunner.api.Result;
+import com.onlythenaive.concept.ecmarunner.api.ResultValueType;
+import com.onlythenaive.concept.ecmarunner.api.TerminationType;
 import com.onlythenaive.concept.ecmarunner.convention.InternalImplementation;
 
 @InternalImplementation
-public final class ExecutionResultImpl implements ExecutionResult {
+public final class ResultImpl implements Result {
 
     private final List<String> console;
-    private final ExecutionInvoice invoice;
-    private final ExecutionTerminationType terminationType;
+    private final Invoice invoice;
+    private final TerminationType terminationType;
     private final Object value;
-    private final ExecutionResultValueType valueType;
+    private final ResultValueType valueType;
 
-    ExecutionResultImpl(final List<String> console,
-                        final ExecutionInvoice invoice,
-                        final ExecutionTerminationType terminationType,
-                        final Object value,
-                        final ExecutionResultValueType valueType) {
+    ResultImpl(final List<String> console,
+               final Invoice invoice,
+               final TerminationType terminationType,
+               final Object value,
+               final ResultValueType valueType) {
         if (console == null) {
             throw new NullPointerException("execution console outputs cannot be null");
         }
@@ -49,12 +49,12 @@ public final class ExecutionResultImpl implements ExecutionResult {
     }
 
     @Override
-    public ExecutionInvoice getInvoice() {
+    public Invoice getInvoice() {
         return this.invoice;
     }
 
     @Override
-    public ExecutionTerminationType getTerminationType() {
+    public TerminationType getTerminationType() {
         return this.terminationType;
     }
 
@@ -65,7 +65,7 @@ public final class ExecutionResultImpl implements ExecutionResult {
     }
 
     @Override
-    public ExecutionResultValueType getValueType() {
+    public ResultValueType getValueType() {
         return this.valueType;
     }
 }

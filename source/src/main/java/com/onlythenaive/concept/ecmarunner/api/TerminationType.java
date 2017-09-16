@@ -5,7 +5,7 @@ package com.onlythenaive.concept.ecmarunner.api;
  *
  * @author Ilia Gubarev
  */
-public enum ExecutionTerminationType {
+public enum TerminationType {
 
     /**
      * Execution has been terminated with an exception.

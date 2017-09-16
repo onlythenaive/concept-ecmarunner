@@ -5,7 +5,7 @@ package com.onlythenaive.concept.ecmarunner.api;
  *
  * @author Ilia Gubarev
  */
-public enum ExecutionResultValueType {
+public enum ResultValueType {
 
     /**
      * Array object (character sequence is not included).

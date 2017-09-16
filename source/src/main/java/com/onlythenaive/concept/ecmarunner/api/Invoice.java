@@ -5,13 +5,13 @@ package com.onlythenaive.concept.ecmarunner.api;
  *
  * Contains all the details required to execute contained script. Designed to have immutable implementations.
  *
- * @see ExecutionInvoiceBuilder
- * @see ExecutionInvoiceParser
- * @see ExecutionSandbox
+ * @see InvoiceBuilder
+ * @see InvoiceParser
+ * @see Sandbox
  *
  * @author Ilia Gubarev
  */
-public interface ExecutionInvoice {
+public interface Invoice {
 
     /**
      * Gets a short description of this invoice if it exists.

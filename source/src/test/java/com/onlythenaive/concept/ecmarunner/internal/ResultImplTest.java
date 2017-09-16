@@ -6,31 +6,31 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.onlythenaive.concept.ecmarunner.api.ExecutionInvoice;
-import com.onlythenaive.concept.ecmarunner.api.ExecutionResultValueType;
-import com.onlythenaive.concept.ecmarunner.api.ExecutionTerminationType;
+import com.onlythenaive.concept.ecmarunner.api.Invoice;
+import com.onlythenaive.concept.ecmarunner.api.ResultValueType;
+import com.onlythenaive.concept.ecmarunner.api.TerminationType;
 import com.onlythenaive.concept.ecmarunner.facade.ServiceFacade;
 
-public class ExecutionResultImplTest {
+public class ResultImplTest {
 
     private List<String> console;
-    private ExecutionInvoice invoice;
-    private ExecutionTerminationType terminationType;
+    private Invoice invoice;
+    private TerminationType terminationType;
     private Object value;
-    private ExecutionResultValueType valueType;
+    private ResultValueType valueType;
 
     @Before
     public void beforeClass() {
         console = Arrays.asList("", "", "");
         invoice = ServiceFacade.invoiceBuilder().script("").build();
-        terminationType = ExecutionTerminationType.SUCCESS;
+        terminationType = TerminationType.SUCCESS;
         value = null;
-        valueType = ExecutionResultValueType.NULL;
+        valueType = ResultValueType.NULL;
     }
 
     @Test
     public void createNewResult() {
-        new ExecutionResultImpl(
+        new ResultImpl(
                 console,
                 invoice,
                 terminationType,
@@ -41,7 +41,7 @@ public class ExecutionResultImplTest {
 
     @Test(expected = NullPointerException.class)
     public void failOnNullConsole() {
-        new ExecutionResultImpl(
+        new ResultImpl(
                 null,
                 invoice,
                 terminationType,
@@ -52,7 +52,7 @@ public class ExecutionResultImplTest {
 
     @Test(expected = NullPointerException.class)
     public void failOnNullInvoice() {
-        new ExecutionResultImpl(
+        new ResultImpl(
                 console,
                 null,
                 terminationType,
@@ -63,7 +63,7 @@ public class ExecutionResultImplTest {
 
     @Test(expected = NullPointerException.class)
     public void failOnNullTerminationType() {
-        new ExecutionResultImpl(
+        new ResultImpl(
                 console,
                 invoice,
                 null,
@@ -74,7 +74,7 @@ public class ExecutionResultImplTest {
 
     @Test(expected = NullPointerException.class)
     public void failOnNullValueType() {
-        new ExecutionResultImpl(
+        new ResultImpl(
                 console,
                 invoice,
                 terminationType,

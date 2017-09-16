@@ -1,11 +1,11 @@
 package com.onlythenaive.concept.ecmarunner.facade;
 
-import com.onlythenaive.concept.ecmarunner.api.ExecutionInvoiceBuilder;
-import com.onlythenaive.concept.ecmarunner.api.ExecutionInvoiceParser;
-import com.onlythenaive.concept.ecmarunner.api.ExecutionSandboxFactory;
-import com.onlythenaive.concept.ecmarunner.internal.ExecutionInvoiceBuilderImpl;
-import com.onlythenaive.concept.ecmarunner.internal.ExecutionInvoiceParserImpl;
-import com.onlythenaive.concept.ecmarunner.internal.ExecutionSandboxFactoryImpl;
+import com.onlythenaive.concept.ecmarunner.api.InvoiceBuilder;
+import com.onlythenaive.concept.ecmarunner.api.InvoiceParser;
+import com.onlythenaive.concept.ecmarunner.api.SandboxFactory;
+import com.onlythenaive.concept.ecmarunner.internal.InvoiceBuilderImpl;
+import com.onlythenaive.concept.ecmarunner.internal.InvoiceParserImpl;
+import com.onlythenaive.concept.ecmarunner.internal.SandboxFactoryImpl;
 
 /**
  * Service provider.
@@ -21,10 +21,10 @@ public final class ServiceFacade {
      *
      * @return new invoice builder.
      *
-     * @see ExecutionInvoiceBuilder
+     * @see InvoiceBuilder
      */
-    public static ExecutionInvoiceBuilder invoiceBuilder() {
-        return new ExecutionInvoiceBuilderImpl();
+    public static InvoiceBuilder invoiceBuilder() {
+        return new InvoiceBuilderImpl();
     }
 
     /**
@@ -32,10 +32,10 @@ public final class ServiceFacade {
      *
      * @return new invoice parser.
      *
-     * @see ExecutionInvoiceParser
+     * @see InvoiceParser
      */
-    public static ExecutionInvoiceParser invoiceParser() {
-        return new ExecutionInvoiceParserImpl();
+    public static InvoiceParser invoiceParser() {
+        return new InvoiceParserImpl();
     }
 
     /**
@@ -43,10 +43,10 @@ public final class ServiceFacade {
      *
      * @return new sandbox factory.
      *
-     * @see ExecutionSandboxFactory
+     * @see SandboxFactory
      */
-    public static ExecutionSandboxFactory sandboxFactory() {
-        return new ExecutionSandboxFactoryImpl();
+    public static SandboxFactory sandboxFactory() {
+        return new SandboxFactoryImpl();
     }
 
     private ServiceFacade() {

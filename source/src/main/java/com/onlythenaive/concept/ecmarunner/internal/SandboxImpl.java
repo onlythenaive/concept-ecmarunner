@@ -8,20 +8,20 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
-import com.onlythenaive.concept.ecmarunner.api.ExecutionInvoice;
-import com.onlythenaive.concept.ecmarunner.api.ExecutionResult;
-import com.onlythenaive.concept.ecmarunner.api.ExecutionResultValueType;
-import com.onlythenaive.concept.ecmarunner.api.ExecutionSandbox;
-import com.onlythenaive.concept.ecmarunner.api.ExecutionSandboxInspector;
-import com.onlythenaive.concept.ecmarunner.api.ExecutionTerminationType;
+import com.onlythenaive.concept.ecmarunner.api.Invoice;
+import com.onlythenaive.concept.ecmarunner.api.Result;
+import com.onlythenaive.concept.ecmarunner.api.ResultValueType;
+import com.onlythenaive.concept.ecmarunner.api.Sandbox;
+import com.onlythenaive.concept.ecmarunner.api.SandboxInspector;
+import com.onlythenaive.concept.ecmarunner.api.TerminationType;
 import com.onlythenaive.concept.ecmarunner.convention.InternalImplementation;
 
 @InternalImplementation
-public final class ExecutionSandboxImpl implements ExecutionSandbox {
+public final class SandboxImpl implements Sandbox {
 
     private final ScriptEngine engine;
 
-    public ExecutionSandboxImpl() {
+    public SandboxImpl() {
         this.engine = new ScriptEngineManager().getEngineByName("nashorn");
     }
 
@@ -32,7 +32,7 @@ public final class ExecutionSandboxImpl implements ExecutionSandbox {
     }
 
     @Override
-    public ExecutionResult execute(final ExecutionInvoice invoice) {
+    public Result execute(final Invoice invoice) {
         if (invoice == null) {
             throw new NullPointerException("Execution invoice cannot be null");
         }
@@ -43,17 +43,17 @@ public final class ExecutionSandboxImpl implements ExecutionSandbox {
         }
 
         // TODO: implement invoice execution
-        return new ExecutionResultImpl(
+        return new ResultImpl(
                 Arrays.asList("output 1", "output 2"),
                 invoice,
-                ExecutionTerminationType.SUCCESS,
+                TerminationType.SUCCESS,
                 null,
-                ExecutionResultValueType.NULL
+                ResultValueType.NULL
         );
     }
 
     @Override
-    public <T> T inspect(ExecutionSandboxInspector<T> inspector) {
+    public <T> T inspect(SandboxInspector<T> inspector) {
         return inspector.apply(engine);
     }
 }

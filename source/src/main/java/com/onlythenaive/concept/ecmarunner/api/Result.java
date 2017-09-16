@@ -7,12 +7,12 @@ import java.util.List;
  *
  * Contains results of an invoice execution. Designed to have immutable implementations.
  *
- * @see ExecutionInvoice
- * @see ExecutionTerminationType
+ * @see Invoice
+ * @see TerminationType
  *
  * @author Ilia Gubarev
  */
-public interface ExecutionResult {
+public interface Result {
 
     /**
      * Gets a list of console output lines which were produced during execution of the invoice.
@@ -26,18 +26,18 @@ public interface ExecutionResult {
      *
      * @return execution invoice.
      *
-     * @see ExecutionInvoice
+     * @see Invoice
      */
-    ExecutionInvoice getInvoice();
+    Invoice getInvoice();
 
     /**
      * Gets the type of execution termination.
      *
      * @return termination type.
      *
-     * @see ExecutionTerminationType
+     * @see TerminationType
      */
-    ExecutionTerminationType getTerminationType();
+    TerminationType getTerminationType();
 
     /**
      * Gets a resulting value of this execution if any.
@@ -51,7 +51,7 @@ public interface ExecutionResult {
      *
      * @return result value type.
      *
-     * @see ExecutionResultValueType
+     * @see ResultValueType
      */
-    ExecutionResultValueType getValueType();
+    ResultValueType getValueType();
 }

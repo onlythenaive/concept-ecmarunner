@@ -3,13 +3,13 @@ package com.onlythenaive.concept.ecmarunner.internal;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class ExecutionInvoiceParserImplTest {
+public class InvoiceParserImplTest {
 
-    private static ExecutionInvoiceParserImpl PARSER;
+    private static InvoiceParserImpl PARSER;
 
     @BeforeClass
     public static void init() {
-        PARSER = new ExecutionInvoiceParserImpl();
+        PARSER = new InvoiceParserImpl();
     }
 
     @Test(expected = NullPointerException.class)

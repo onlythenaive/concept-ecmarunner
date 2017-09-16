@@ -5,11 +5,11 @@ import java.util.List;
 /**
  * Execution invoice JSON parser API.
  *
- * @see ExecutionInvoiceBuilder
+ * @see InvoiceBuilder
  *
  * @author Ilia Gubarev
  */
-public interface ExecutionInvoiceParser {
+public interface InvoiceParser {
 
     /**
      * Converts a JSON input to a list of execution invoices.
@@ -17,5 +17,5 @@ public interface ExecutionInvoiceParser {
      * @param invoiceJson a JSON input.
      * @return a list of execution invoices.
      */
-    List<ExecutionInvoice> parse(String invoiceJson);
+    List<Invoice> parse(String invoiceJson);
 }

@@ -3,15 +3,15 @@ package com.onlythenaive.concept.ecmarunner.internal;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.onlythenaive.concept.ecmarunner.api.ExecutionSandboxFactory;
+import com.onlythenaive.concept.ecmarunner.api.SandboxFactory;
 
-public class ExecutionSandboxFactoryImplTest {
+public class SandboxFactoryImplTest {
 
-    private static ExecutionSandboxFactory FACTORY;
+    private static SandboxFactory FACTORY;
 
     @BeforeClass
     public static void initPreconditions() {
-        FACTORY = new ExecutionSandboxFactoryImpl();
+        FACTORY = new SandboxFactoryImpl();
     }
 
     @Test
