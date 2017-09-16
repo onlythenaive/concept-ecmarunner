@@ -8,12 +8,12 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
-import com.onlythenaive.concept.ecmarunner.ExecutionInvoice;
-import com.onlythenaive.concept.ecmarunner.ExecutionResult;
-import com.onlythenaive.concept.ecmarunner.ExecutionResultValueType;
-import com.onlythenaive.concept.ecmarunner.ExecutionSandbox;
-import com.onlythenaive.concept.ecmarunner.ExecutionSandboxInspector;
-import com.onlythenaive.concept.ecmarunner.ExecutionTerminationType;
+import com.onlythenaive.concept.ecmarunner.api.ExecutionInvoice;
+import com.onlythenaive.concept.ecmarunner.api.ExecutionResult;
+import com.onlythenaive.concept.ecmarunner.api.ExecutionResultValueType;
+import com.onlythenaive.concept.ecmarunner.api.ExecutionSandbox;
+import com.onlythenaive.concept.ecmarunner.api.ExecutionSandboxInspector;
+import com.onlythenaive.concept.ecmarunner.api.ExecutionTerminationType;
 import com.onlythenaive.concept.ecmarunner.convention.InternalImplementation;
 
 @InternalImplementation

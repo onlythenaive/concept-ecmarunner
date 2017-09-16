@@ -3,7 +3,7 @@ package com.onlythenaive.concept.ecmarunner.internal;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.onlythenaive.concept.ecmarunner.ExecutionSandboxFactory;
+import com.onlythenaive.concept.ecmarunner.api.ExecutionSandboxFactory;
 
 public class ExecutionSandboxFactoryImplTest {
 

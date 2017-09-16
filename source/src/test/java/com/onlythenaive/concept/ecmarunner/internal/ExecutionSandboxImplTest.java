@@ -4,10 +4,10 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.onlythenaive.concept.ecmarunner.ExecutionInvoice;
-import com.onlythenaive.concept.ecmarunner.ExecutionResult;
-import com.onlythenaive.concept.ecmarunner.ExecutionSandbox;
-import com.onlythenaive.concept.ecmarunner.ExecutionTerminationType;
+import com.onlythenaive.concept.ecmarunner.api.ExecutionInvoice;
+import com.onlythenaive.concept.ecmarunner.api.ExecutionResult;
+import com.onlythenaive.concept.ecmarunner.api.ExecutionSandbox;
+import com.onlythenaive.concept.ecmarunner.api.ExecutionTerminationType;
 import com.onlythenaive.concept.ecmarunner.facade.ServiceFacade;
 
 public class ExecutionSandboxImplTest {

@@ -1,6 +1,6 @@
 package com.onlythenaive.concept.ecmarunner.internal;
 
-import com.onlythenaive.concept.ecmarunner.ExecutionInvoice;
+import com.onlythenaive.concept.ecmarunner.api.ExecutionInvoice;
 import com.onlythenaive.concept.ecmarunner.convention.InternalImplementation;
 
 @InternalImplementation

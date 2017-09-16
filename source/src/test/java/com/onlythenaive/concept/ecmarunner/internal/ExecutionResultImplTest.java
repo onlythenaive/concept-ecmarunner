@@ -6,9 +6,9 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.onlythenaive.concept.ecmarunner.ExecutionInvoice;
-import com.onlythenaive.concept.ecmarunner.ExecutionResultValueType;
-import com.onlythenaive.concept.ecmarunner.ExecutionTerminationType;
+import com.onlythenaive.concept.ecmarunner.api.ExecutionInvoice;
+import com.onlythenaive.concept.ecmarunner.api.ExecutionResultValueType;
+import com.onlythenaive.concept.ecmarunner.api.ExecutionTerminationType;
 import com.onlythenaive.concept.ecmarunner.facade.ServiceFacade;
 
 public class ExecutionResultImplTest {

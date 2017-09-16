@@ -1,4 +1,4 @@
-package com.onlythenaive.concept.ecmarunner;
+package com.onlythenaive.concept.ecmarunner.api;
 
 /**
  * Possible execution result value types.
