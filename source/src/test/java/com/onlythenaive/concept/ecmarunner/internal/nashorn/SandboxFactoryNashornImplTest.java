@@ -1,17 +1,17 @@
-package com.onlythenaive.concept.ecmarunner.internal;
+package com.onlythenaive.concept.ecmarunner.internal.nashorn;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.onlythenaive.concept.ecmarunner.api.SandboxFactory;
 
-public class SandboxFactoryImplTest {
+public class SandboxFactoryNashornImplTest {
 
     private static SandboxFactory FACTORY;
 
     @BeforeClass
     public static void initPreconditions() {
-        FACTORY = new SandboxFactoryImpl();
+        FACTORY = new SandboxFactoryNashornImpl();
     }
 
     @Test

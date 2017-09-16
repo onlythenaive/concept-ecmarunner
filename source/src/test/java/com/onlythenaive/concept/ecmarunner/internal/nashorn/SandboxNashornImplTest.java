@@ -1,4 +1,4 @@
-package com.onlythenaive.concept.ecmarunner.internal;
+package com.onlythenaive.concept.ecmarunner.internal.nashorn;
 
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -10,7 +10,7 @@ import com.onlythenaive.concept.ecmarunner.api.Sandbox;
 import com.onlythenaive.concept.ecmarunner.api.TerminationType;
 import com.onlythenaive.concept.ecmarunner.facade.InvoiceBuilderFacade;
 
-public class SandboxImplTest {
+public class SandboxNashornImplTest {
 
     private static Invoice INVOICE;
 
@@ -23,14 +23,14 @@ public class SandboxImplTest {
 
     @Test
     public void createNewSandboxImpl() {
-        this.sandbox = new SandboxImpl();
+        this.sandbox = new SandboxNashornImpl();
         Result result = this.sandbox.execute(INVOICE);
         Assert.assertEquals(TerminationType.SUCCESS,result.getTerminationType());
     }
 
     @Test(expected = NullPointerException.class)
     public void failOnNullInvoice() {
-        this.sandbox = new SandboxImpl();
+        this.sandbox = new SandboxNashornImpl();
         this.sandbox.execute(null);
     }
 }

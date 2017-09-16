@@ -1,4 +1,4 @@
-package com.onlythenaive.concept.ecmarunner.internal;
+package com.onlythenaive.concept.ecmarunner.internal.nashorn;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,13 +15,14 @@ import com.onlythenaive.concept.ecmarunner.api.Sandbox;
 import com.onlythenaive.concept.ecmarunner.api.SandboxInspector;
 import com.onlythenaive.concept.ecmarunner.api.TerminationType;
 import com.onlythenaive.concept.ecmarunner.convention.InternalImplementation;
+import com.onlythenaive.concept.ecmarunner.internal.ResultImpl;
 
 @InternalImplementation
-public final class SandboxImpl implements Sandbox {
+public final class SandboxNashornImpl implements Sandbox {
 
     private final ScriptEngine engine;
 
-    public SandboxImpl() {
+    public SandboxNashornImpl() {
         this.engine = new ScriptEngineManager().getEngineByName("nashorn");
     }
 
