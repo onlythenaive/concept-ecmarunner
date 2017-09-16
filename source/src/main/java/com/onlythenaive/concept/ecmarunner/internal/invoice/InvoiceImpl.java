@@ -13,12 +13,12 @@ public final class InvoiceImpl implements Invoice {
     private final int timeoutInMilliseconds;
     private final String version;
 
-    InvoiceImpl(final String description,
-                final boolean restricted,
-                final String script,
-                final boolean timeoutEnabled,
-                final int timeoutInMilliseconds,
-                final String version) {
+    public InvoiceImpl(final String description,
+                       final boolean restricted,
+                       final String script,
+                       final boolean timeoutEnabled,
+                       final int timeoutInMilliseconds,
+                       final String version) {
         this.description = description;
         this.restricted = restricted;
         if (script == null) {

@@ -18,11 +18,11 @@ public final class ResultImpl implements Result {
     private final Object value;
     private final ResultValueType valueType;
 
-    ResultImpl(final List<String> console,
-               final Invoice invoice,
-               final TerminationType terminationType,
-               final Object value,
-               final ResultValueType valueType) {
+    public ResultImpl(final List<String> console,
+                      final Invoice invoice,
+                      final TerminationType terminationType,
+                      final Object value,
+                      final ResultValueType valueType) {
         if (console == null) {
             throw new NullPointerException("execution console outputs cannot be null");
         }
