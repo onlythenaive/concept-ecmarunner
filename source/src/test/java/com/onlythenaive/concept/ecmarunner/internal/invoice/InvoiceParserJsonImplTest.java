@@ -1,4 +1,4 @@
-package com.onlythenaive.concept.ecmarunner.internal;
+package com.onlythenaive.concept.ecmarunner.internal.invoice;
 
 import org.junit.BeforeClass;
 import org.junit.Test;

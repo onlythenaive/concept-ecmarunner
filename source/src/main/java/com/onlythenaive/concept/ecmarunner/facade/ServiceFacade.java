@@ -3,8 +3,8 @@ package com.onlythenaive.concept.ecmarunner.facade;
 import com.onlythenaive.concept.ecmarunner.api.InvoiceBuilder;
 import com.onlythenaive.concept.ecmarunner.api.InvoiceParser;
 import com.onlythenaive.concept.ecmarunner.api.SandboxFactory;
-import com.onlythenaive.concept.ecmarunner.internal.InvoiceBuilderImpl;
-import com.onlythenaive.concept.ecmarunner.internal.InvoiceParserJsonImpl;
+import com.onlythenaive.concept.ecmarunner.internal.invoice.InvoiceBuilderImpl;
+import com.onlythenaive.concept.ecmarunner.internal.invoice.InvoiceParserJsonImpl;
 import com.onlythenaive.concept.ecmarunner.internal.SandboxFactoryImpl;
 
 /**
