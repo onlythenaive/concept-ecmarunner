@@ -8,7 +8,7 @@ import com.onlythenaive.concept.ecmarunner.api.Invoice;
 import com.onlythenaive.concept.ecmarunner.api.Result;
 import com.onlythenaive.concept.ecmarunner.api.Sandbox;
 import com.onlythenaive.concept.ecmarunner.api.TerminationType;
-import com.onlythenaive.concept.ecmarunner.facade.InvoiceBuilderFacade;
+import com.onlythenaive.concept.ecmarunner.api.facade.InvoiceBuilderFacade;
 
 public class SandboxNashornImplTest {
 

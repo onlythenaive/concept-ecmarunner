@@ -6,7 +6,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.onlythenaive.concept.ecmarunner.facade.InvoiceBuilderFacade;
+import com.onlythenaive.concept.ecmarunner.api.facade.InvoiceBuilderFacade;
 
 public class ResultTest {
 

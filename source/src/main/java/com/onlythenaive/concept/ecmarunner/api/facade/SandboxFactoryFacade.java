@@ -1,10 +1,9 @@
-package com.onlythenaive.concept.ecmarunner.facade;
+package com.onlythenaive.concept.ecmarunner.api.facade;
 
 import com.onlythenaive.concept.ecmarunner.api.SandboxFactory;
 import com.onlythenaive.concept.ecmarunner.convention.ImplementationFacade;
 import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
 import com.onlythenaive.concept.ecmarunner.internal.htmlunit.SandboxFactoryHtmlUnitImpl;
-import com.onlythenaive.concept.ecmarunner.internal.nashorn.SandboxFactoryNashornImpl;
 
 /**
  * Implementation facade for sandbox factories.
@@ -18,21 +17,12 @@ import com.onlythenaive.concept.ecmarunner.internal.nashorn.SandboxFactoryNashor
 public final class SandboxFactoryFacade {
 
     /**
-     * Creates a new HtmlUnit-based execution sandbox factory.
+     * Creates a new execution sandbox factory.
      *
      * @return new sandbox factory.
      */
     public static SandboxFactory htmlUnitSandboxFactory() {
         return new SandboxFactoryHtmlUnitImpl();
-    }
-
-    /**
-     * Creates a new Nashorn-based execution sandbox factory.
-     *
-     * @return new sandbox factory.
-     */
-    public static SandboxFactory nashornSandboxFactory() {
-        return new SandboxFactoryNashornImpl();
     }
 
     private SandboxFactoryFacade() {

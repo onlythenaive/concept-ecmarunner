@@ -1,4 +1,4 @@
-package com.onlythenaive.concept.ecmarunner.facade;
+package com.onlythenaive.concept.ecmarunner.api.facade;
 
 import com.onlythenaive.concept.ecmarunner.api.InvoiceBuilder;
 import com.onlythenaive.concept.ecmarunner.convention.ImplementationFacade;
