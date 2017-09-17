@@ -1,4 +1,4 @@
-package com.onlythenaive.concept.ecmarunner.internal;
+package com.onlythenaive.concept.ecmarunner.api;
 
 import java.util.Arrays;
 import java.util.List;
@@ -6,12 +6,9 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.onlythenaive.concept.ecmarunner.api.Invoice;
-import com.onlythenaive.concept.ecmarunner.api.ResultValueType;
-import com.onlythenaive.concept.ecmarunner.api.TerminationType;
 import com.onlythenaive.concept.ecmarunner.facade.InvoiceBuilderFacade;
 
-public class ResultImplTest {
+public class ResultTest {
 
     private List<String> console;
     private Invoice invoice;
@@ -30,7 +27,7 @@ public class ResultImplTest {
 
     @Test
     public void createNewResult() {
-        new ResultImpl(
+        new Result(
                 console,
                 invoice,
                 terminationType,
@@ -41,7 +38,7 @@ public class ResultImplTest {
 
     @Test(expected = NullPointerException.class)
     public void failOnNullConsole() {
-        new ResultImpl(
+        new Result(
                 null,
                 invoice,
                 terminationType,
@@ -52,7 +49,7 @@ public class ResultImplTest {
 
     @Test(expected = NullPointerException.class)
     public void failOnNullInvoice() {
-        new ResultImpl(
+        new Result(
                 console,
                 null,
                 terminationType,
@@ -63,7 +60,7 @@ public class ResultImplTest {
 
     @Test(expected = NullPointerException.class)
     public void failOnNullTerminationType() {
-        new ResultImpl(
+        new Result(
                 console,
                 invoice,
                 null,
@@ -74,7 +71,7 @@ public class ResultImplTest {
 
     @Test(expected = NullPointerException.class)
     public void failOnNullValueType() {
-        new ResultImpl(
+        new Result(
                 console,
                 invoice,
                 terminationType,

@@ -1,25 +1,60 @@
 package com.onlythenaive.concept.ecmarunner.api;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Script(s) execution result API.
+ * Script(s) execution result.
  *
- * Contains results of an invoice execution. Designed to have immutable implementations.
+ * Contains results of an invoice execution. Designed to be immutable.
  *
  * @see Invoice
  * @see TerminationType
+ * @see ResultValueType
  *
  * @author Ilia Gubarev
  */
-public interface Result {
+public final class Result {
+
+    private final List<String> console;
+    private final Invoice invoice;
+    private final TerminationType terminationType;
+    private final Object value;
+    private final ResultValueType valueType;
+
+    public Result(final List<String> console,
+                  final Invoice invoice,
+                  final TerminationType terminationType,
+                  final Object value,
+                  final ResultValueType valueType) {
+        if (console == null) {
+            throw new NullPointerException("execution console outputs cannot be null");
+        }
+        this.console = console;
+        if (invoice == null) {
+            throw new NullPointerException("execution invoice cannot be null");
+        }
+        this.invoice = invoice;
+        if (terminationType == null) {
+            throw new NullPointerException("termination type cannot be null");
+        }
+        this.terminationType = terminationType;
+        this.value = value;
+        if (valueType == null) {
+            throw new NullPointerException("value type cannot be null");
+        }
+        // TODO: check if value type corresponds to the value
+        this.valueType = valueType;
+    }
 
     /**
      * Gets a list of console output lines which were produced during execution of the invoice.
      *
      * @return list of console output lines.
      */
-    List<String> getConsole();
+    public List<String> getConsole() {
+        return new ArrayList<>(this.console);
+    }
 
     /**
      * Related execution invoice
@@ -28,7 +63,9 @@ public interface Result {
      *
      * @see Invoice
      */
-    Invoice getInvoice();
+    public Invoice getInvoice() {
+        return this.invoice;
+    }
 
     /**
      * Gets the type of execution termination.
@@ -37,14 +74,19 @@ public interface Result {
      *
      * @see TerminationType
      */
-    TerminationType getTerminationType();
+    public TerminationType getTerminationType() {
+        return this.terminationType;
+    }
 
     /**
      * Gets a resulting value of this execution if any.
      *
      * @return execution result value or <code>null</code>.
      */
-    Object getValue();
+    public Object getValue() {
+        // TODO: analyze value type
+        return this.value;
+    }
 
     /**
      * Gets the type of this execution result value
@@ -53,5 +95,7 @@ public interface Result {
      *
      * @see ResultValueType
      */
-    ResultValueType getValueType();
+    public ResultValueType getValueType() {
+        return this.valueType;
+    }
 }

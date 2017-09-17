@@ -15,7 +15,6 @@ import com.onlythenaive.concept.ecmarunner.api.Sandbox;
 import com.onlythenaive.concept.ecmarunner.api.SandboxInspector;
 import com.onlythenaive.concept.ecmarunner.api.TerminationType;
 import com.onlythenaive.concept.ecmarunner.convention.InternalImplementation;
-import com.onlythenaive.concept.ecmarunner.internal.ResultImpl;
 
 @InternalImplementation
 public final class SandboxNashornImpl implements Sandbox {
@@ -44,7 +43,7 @@ public final class SandboxNashornImpl implements Sandbox {
         }
 
         // TODO: implement invoice execution
-        return new ResultImpl(
+        return new Result(
                 Arrays.asList("output 1", "output 2"),
                 invoice,
                 TerminationType.SUCCESS,

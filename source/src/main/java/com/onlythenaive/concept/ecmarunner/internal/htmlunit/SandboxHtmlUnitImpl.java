@@ -14,7 +14,6 @@ import com.onlythenaive.concept.ecmarunner.api.Sandbox;
 import com.onlythenaive.concept.ecmarunner.api.SandboxInspector;
 import com.onlythenaive.concept.ecmarunner.api.TerminationType;
 import com.onlythenaive.concept.ecmarunner.convention.InternalImplementation;
-import com.onlythenaive.concept.ecmarunner.internal.ResultImpl;
 
 @InternalImplementation
 public final class SandboxHtmlUnitImpl implements Sandbox {
@@ -51,11 +50,11 @@ public final class SandboxHtmlUnitImpl implements Sandbox {
                 webClient.getJavaScriptEngine().setJavaScriptTimeout(0);
             }
             final Object value = this.page.executeJavaScript(invoice.getScript());
-            return new ResultImpl(new ArrayList<>(outputs), invoice, TerminationType.SUCCESS, value, valueType(value));
+            return new Result(new ArrayList<>(outputs), invoice, TerminationType.SUCCESS, value, valueType(value));
         } catch (TimeoutError e) {
-            return new ResultImpl(new ArrayList<>(outputs), invoice, TerminationType.TIMEOUT, null, ResultValueType.UNDEFINED);
+            return new Result(new ArrayList<>(outputs), invoice, TerminationType.TIMEOUT, null, ResultValueType.UNDEFINED);
         } catch (Exception e) {
-            return new ResultImpl(new ArrayList<>(outputs), invoice, TerminationType.EXCEPTION, null, ResultValueType.UNDEFINED);
+            return new Result(new ArrayList<>(outputs), invoice, TerminationType.EXCEPTION, null, ResultValueType.UNDEFINED);
         }
     }
 
