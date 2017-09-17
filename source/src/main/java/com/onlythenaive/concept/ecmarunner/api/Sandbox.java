@@ -40,4 +40,16 @@ public interface Sandbox {
      * @see SandboxInspector
      */
     <T> T inspect(SandboxInspector<T> inspector);
+
+    /**
+     * Creates a new invoice builder.
+     *
+     * @return new invoice builder.
+     *
+     * @see Invoice
+     * @see InvoiceBuilder
+     */
+    default InvoiceBuilder invoiceBuilder() {
+        return new InvoiceBuilder();
+    }
 }
