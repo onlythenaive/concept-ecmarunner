@@ -3,6 +3,8 @@ package com.onlythenaive.concept.ecmarunner.api;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
+
 /**
  * Script(s) execution result.
  *
@@ -14,6 +16,7 @@ import java.util.List;
  *
  * @author Ilia Gubarev
  */
+@PublishedApi
 public final class Result {
 
     private final List<String> console;

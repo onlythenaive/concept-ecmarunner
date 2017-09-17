@@ -1,5 +1,7 @@
 package com.onlythenaive.concept.ecmarunner.api;
 
+import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
+
 /**
  * Execution sandbox factory API.
  *
@@ -7,6 +9,7 @@ package com.onlythenaive.concept.ecmarunner.api;
  *
  * @author Ilia Gubarev
  */
+@PublishedApi
 public interface SandboxFactory {
 
     /**

@@ -2,6 +2,7 @@ package com.onlythenaive.concept.ecmarunner.facade;
 
 import com.onlythenaive.concept.ecmarunner.api.SandboxFactory;
 import com.onlythenaive.concept.ecmarunner.convention.ImplementationFacade;
+import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
 import com.onlythenaive.concept.ecmarunner.internal.htmlunit.SandboxFactoryHtmlUnitImpl;
 import com.onlythenaive.concept.ecmarunner.internal.nashorn.SandboxFactoryNashornImpl;
 
@@ -12,6 +13,7 @@ import com.onlythenaive.concept.ecmarunner.internal.nashorn.SandboxFactoryNashor
  *
  * @author Ilia Gubarev
  */
+@PublishedApi
 @ImplementationFacade
 public final class SandboxFactoryFacade {
 

@@ -1,5 +1,7 @@
 package com.onlythenaive.concept.ecmarunner.api;
 
+import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
+
 /**
  * Script execution invoice.
  * <p>
@@ -10,6 +12,7 @@ package com.onlythenaive.concept.ecmarunner.api;
  *
  * @author Ilia Gubarev
  */
+@PublishedApi
 public final class Invoice {
 
     private final String description;

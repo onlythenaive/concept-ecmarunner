@@ -2,6 +2,7 @@ package com.onlythenaive.concept.ecmarunner.facade;
 
 import com.onlythenaive.concept.ecmarunner.api.InvoiceBuilder;
 import com.onlythenaive.concept.ecmarunner.convention.ImplementationFacade;
+import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
 import com.onlythenaive.concept.ecmarunner.internal.invoice.InvoiceBuilderImpl;
 
 /**
@@ -11,6 +12,7 @@ import com.onlythenaive.concept.ecmarunner.internal.invoice.InvoiceBuilderImpl;
  *
  * @author Ilia Gubarev
  */
+@PublishedApi
 @ImplementationFacade
 public final class InvoiceBuilderFacade {
 

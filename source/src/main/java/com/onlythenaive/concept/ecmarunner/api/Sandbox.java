@@ -2,11 +2,14 @@ package com.onlythenaive.concept.ecmarunner.api;
 
 import java.util.List;
 
+import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
+
 /**
  * Execution sandbox API.
  *
  * @author Ilia Gubarev
  */
+@PublishedApi
 public interface Sandbox {
 
     /**

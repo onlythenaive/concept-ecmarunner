@@ -1,10 +1,13 @@
 package com.onlythenaive.concept.ecmarunner.api;
 
+import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
+
 /**
  * Execution invoice builder API.
  *
  * @author Ilia Gubarev
  */
+@PublishedApi
 public interface InvoiceBuilder {
 
     /**

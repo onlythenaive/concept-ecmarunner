@@ -1,10 +1,13 @@
 package com.onlythenaive.concept.ecmarunner.api;
 
+import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
+
 /**
  * Possible execution result value types.
  *
  * @author Ilia Gubarev
  */
+@PublishedApi
 public enum ResultValueType {
 
     /**
