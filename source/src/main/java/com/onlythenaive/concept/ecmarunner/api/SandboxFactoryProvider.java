@@ -4,6 +4,7 @@ import com.onlythenaive.concept.ecmarunner.api.configuration.EnvironmentType;
 import com.onlythenaive.concept.ecmarunner.api.configuration.SandboxConfiguration;
 import com.onlythenaive.concept.ecmarunner.api.configuration.SandboxConfigurationBuilder;
 import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
+import com.onlythenaive.concept.ecmarunner.convention.StaticService;
 import com.onlythenaive.concept.ecmarunner.internal.htmlunit.SandboxFactoryHtmlUnitImpl;
 
 /**
@@ -14,6 +15,7 @@ import com.onlythenaive.concept.ecmarunner.internal.htmlunit.SandboxFactoryHtmlU
  * @author Ilia Gubarev
  */
 @PublishedApi
+@StaticService
 public final class SandboxFactoryProvider {
 
     /**
