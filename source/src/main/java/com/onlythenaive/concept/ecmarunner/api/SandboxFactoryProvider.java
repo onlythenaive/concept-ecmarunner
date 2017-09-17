@@ -1,5 +1,6 @@
 package com.onlythenaive.concept.ecmarunner.api;
 
+import com.onlythenaive.concept.ecmarunner.api.configuration.EnvironmentType;
 import com.onlythenaive.concept.ecmarunner.api.configuration.SandboxConfiguration;
 import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
 import com.onlythenaive.concept.ecmarunner.internal.htmlunit.SandboxFactoryHtmlUnitImpl;
@@ -23,7 +24,28 @@ public final class SandboxFactoryProvider {
      * @see SandboxConfiguration
      */
     public static SandboxFactory factory(final SandboxConfiguration configuration) {
-        return new SandboxFactoryHtmlUnitImpl();
+        if (configuration == null) {
+            throw new NullPointerException("Sandbox configuration cannot be null");
+        }
+        final EnvironmentType type = environmentType(configuration);
+        switch (type) {
+            case BROWSER:
+                return new SandboxFactoryHtmlUnitImpl(configuration);
+            case SERVER:
+            default:
+                throw new UnsupportedOperationException();
+        }
+    }
+
+    private static EnvironmentType environmentType(final SandboxConfiguration configuration) {
+        final EnvironmentType type = configuration.getEnvironmentType();
+        if (type != EnvironmentType.AUTO) {
+            return type;
+        }
+        if (configuration.getBrowserLayout() != null) {
+            return EnvironmentType.BROWSER;
+        }
+        return EnvironmentType.SERVER;
     }
 
     private SandboxFactoryProvider() {

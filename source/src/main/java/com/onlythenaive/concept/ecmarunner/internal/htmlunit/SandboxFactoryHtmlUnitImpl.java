@@ -12,10 +12,17 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 import com.onlythenaive.concept.ecmarunner.api.Sandbox;
 import com.onlythenaive.concept.ecmarunner.api.SandboxFactory;
+import com.onlythenaive.concept.ecmarunner.api.configuration.SandboxConfiguration;
 import com.onlythenaive.concept.ecmarunner.convention.InternalImplementation;
 
 @InternalImplementation
 public final class SandboxFactoryHtmlUnitImpl implements SandboxFactory {
+
+    private final SandboxConfiguration configuration;
+
+    public SandboxFactoryHtmlUnitImpl(final SandboxConfiguration configuration) {
+        this.configuration = configuration;
+    }
 
     @Override
     public Sandbox create() {
@@ -32,8 +39,8 @@ public final class SandboxFactoryHtmlUnitImpl implements SandboxFactory {
     }
 
     private StringWebResponse response() throws MalformedURLException {
-        final URL url = new URL("http://ecmarunner.org");
-        final String html = "<html><body></body></html>";
+        final URL url = new URL(this.configuration.getBrowserLayout().getUrl());
+        final String html = this.configuration.getBrowserLayout().getHtml();
         return new StringWebResponse(html, url);
     }
 }
