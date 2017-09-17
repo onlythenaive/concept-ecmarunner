@@ -12,12 +12,49 @@ import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
 @PublishedApi
 public final class InvoiceBuilder {
 
-    private String description = "";
-    private boolean restricted = true;
-    private String script = null;
-    private boolean timeoutEnabled = true;
-    private long timeoutInMilliseconds = 10 * 1000;
-    private String version = "1.0";
+    /**
+     * Default invoice description.
+     */
+    public static final String DEFAULT_DESCRIPTION = "";
+
+    /**
+     * Default restriction flag.
+     */
+    public static final boolean DEFAULT_RESTRICTED = true;
+
+    /**
+     * Default script to be executed.
+     */
+    public static final String DEFAULT_SCRIPT = "";
+
+    /**
+     * Default execution timeout flag.
+     */
+    public static final boolean DEFAULT_TIMEOUT_ENABLED = true;
+
+    /**
+     * Default execution timeout value.
+     */
+    public static final long DEFAULT_TIMEOUT_IN_MILLISECONDS = 5 * 1000;
+
+    /**
+     * Default invoice version.
+     */
+    public static final String DEFAULT_VERSION = "1.0";
+
+    private String description = DEFAULT_DESCRIPTION;
+    private boolean restricted = DEFAULT_RESTRICTED;
+    private String script = DEFAULT_SCRIPT;
+    private boolean timeoutEnabled = DEFAULT_TIMEOUT_ENABLED;
+    private long timeoutInMilliseconds = DEFAULT_TIMEOUT_IN_MILLISECONDS;
+    private String version = DEFAULT_VERSION;
+
+    /**
+     * Create a new execution invoice builder.
+     */
+    public InvoiceBuilder() {
+
+    }
 
     /**
      * Sets the description for an invoice.

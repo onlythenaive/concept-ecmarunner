@@ -14,7 +14,7 @@ public class InvoiceBuilderTest {
         Assert.assertTrue(invoice.isRestricted());
         Assert.assertTrue(invoice.getScript().equals("some script"));
         Assert.assertTrue(invoice.isTimeoutEnabled());
-        Assert.assertEquals(10 * 1000, invoice.getTimeoutInMilliseconds());
+        Assert.assertEquals(5 * 1000, invoice.getTimeoutInMilliseconds());
         Assert.assertEquals("1.0", invoice.getVersion());
     }
 }
