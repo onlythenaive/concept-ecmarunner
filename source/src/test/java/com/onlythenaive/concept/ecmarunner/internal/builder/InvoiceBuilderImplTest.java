@@ -1,4 +1,4 @@
-package com.onlythenaive.concept.ecmarunner.internal.invoice;
+package com.onlythenaive.concept.ecmarunner.internal.builder;
 
 import org.junit.Assert;
 import org.junit.Test;

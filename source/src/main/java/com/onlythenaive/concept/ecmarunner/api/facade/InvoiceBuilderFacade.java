@@ -3,7 +3,7 @@ package com.onlythenaive.concept.ecmarunner.api.facade;
 import com.onlythenaive.concept.ecmarunner.api.InvoiceBuilder;
 import com.onlythenaive.concept.ecmarunner.convention.ImplementationFacade;
 import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
-import com.onlythenaive.concept.ecmarunner.internal.invoice.InvoiceBuilderImpl;
+import com.onlythenaive.concept.ecmarunner.internal.builder.InvoiceBuilderImpl;
 
 /**
  * Implementation facade for invoice builders.

@@ -1,4 +1,4 @@
-package com.onlythenaive.concept.ecmarunner.internal.invoice;
+package com.onlythenaive.concept.ecmarunner.internal.builder;
 
 import com.onlythenaive.concept.ecmarunner.api.Invoice;
 import com.onlythenaive.concept.ecmarunner.api.InvoiceBuilder;
