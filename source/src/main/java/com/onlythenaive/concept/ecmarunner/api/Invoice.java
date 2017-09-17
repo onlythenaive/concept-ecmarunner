@@ -22,6 +22,16 @@ public final class Invoice {
     private final long timeoutInMilliseconds;
     private final String version;
 
+    /**
+     * Creates a new execution invoice.
+     *
+     * @param description execution description (optional).
+     * @param restricted restriction flag (<code>true</code> if the execution must be restricted).
+     * @param script a script to be executed.
+     * @param timeoutEnabled execution timeout flag.
+     * @param timeoutInMilliseconds execution timeout value in milliseconds (non-negative).
+     * @param version invoice version for back-compatibility.
+     */
     public Invoice(final String description,
                    final boolean restricted,
                    final String script,
@@ -31,19 +41,19 @@ public final class Invoice {
         this.description = description;
         this.restricted = restricted;
         if (script == null) {
-            throw new NullPointerException("script cannot be null");
+            throw new NullPointerException("Execution script cannot be null");
         }
         this.script = script;
         this.timeoutEnabled = timeoutEnabled;
         if (timeoutInMilliseconds < 0) {
-            throw new IllegalArgumentException("timeout cannot be negative");
+            throw new IllegalArgumentException("Execution timeout value cannot be negative");
         }
         this.timeoutInMilliseconds = timeoutInMilliseconds;
         if (version == null) {
-            throw new NullPointerException("version cannot be null");
+            throw new NullPointerException("Execution version cannot be null");
         }
         if (version.isEmpty()) {
-            throw new IllegalArgumentException("version cannot be empty");
+            throw new IllegalArgumentException("Execution version cannot be empty");
         }
         this.version = version;
     }
