@@ -3,9 +3,11 @@ package com.onlythenaive.concept.ecmarunner.internal.configuration;
 import com.onlythenaive.concept.ecmarunner.api.Invoice;
 import com.onlythenaive.concept.ecmarunner.api.configuration.Dependency;
 import com.onlythenaive.concept.ecmarunner.api.configuration.DependencyResolver;
+import com.onlythenaive.concept.ecmarunner.convention.Immutable;
 import com.onlythenaive.concept.ecmarunner.convention.InternalImplementation;
 
 @InternalImplementation
+@Immutable
 public final class DependencyResolverDefaultImpl implements DependencyResolver {
 
     @Override

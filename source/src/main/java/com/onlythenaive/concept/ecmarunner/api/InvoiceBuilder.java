@@ -1,5 +1,6 @@
 package com.onlythenaive.concept.ecmarunner.api;
 
+import com.onlythenaive.concept.ecmarunner.convention.Builder;
 import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
 
 /**
@@ -10,6 +11,7 @@ import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
  * @author Ilia Gubarev
  */
 @PublishedApi
+@Builder(Invoice.class)
 public final class InvoiceBuilder {
 
     /**

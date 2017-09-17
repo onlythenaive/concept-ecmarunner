@@ -3,9 +3,11 @@ package com.onlythenaive.concept.ecmarunner.api.configuration;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.onlythenaive.concept.ecmarunner.convention.Immutable;
 import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
 
 @PublishedApi
+@Immutable
 public final class SandboxConfiguration {
 
     private final BrowserLayout browserLayout;

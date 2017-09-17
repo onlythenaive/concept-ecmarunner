@@ -1,5 +1,6 @@
 package com.onlythenaive.concept.ecmarunner.api;
 
+import com.onlythenaive.concept.ecmarunner.convention.Immutable;
 import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
 
 /**
@@ -8,6 +9,7 @@ import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
  * @author Ilia Gubarev
  */
 @PublishedApi
+@Immutable
 public enum TerminationType {
 
     /**

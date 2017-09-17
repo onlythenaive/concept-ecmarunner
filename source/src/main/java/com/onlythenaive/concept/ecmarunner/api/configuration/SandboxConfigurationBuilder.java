@@ -3,10 +3,12 @@ package com.onlythenaive.concept.ecmarunner.api.configuration;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.onlythenaive.concept.ecmarunner.convention.Builder;
 import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
 import com.onlythenaive.concept.ecmarunner.internal.configuration.DependencyResolverDefaultImpl;
 
 @PublishedApi
+@Builder(SandboxConfiguration.class)
 public final class SandboxConfigurationBuilder {
 
     private static final String DEFAULT_BROWSER_HTML = "<html><body></body></html>";

@@ -3,6 +3,7 @@ package com.onlythenaive.concept.ecmarunner.api;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.onlythenaive.concept.ecmarunner.convention.ImmutableByContract;
 import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
 
 /**
@@ -17,6 +18,7 @@ import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
  * @author Ilia Gubarev
  */
 @PublishedApi
+@ImmutableByContract
 public final class Result {
 
     private final List<String> console;

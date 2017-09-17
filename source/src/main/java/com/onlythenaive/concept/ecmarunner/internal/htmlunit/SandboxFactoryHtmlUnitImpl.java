@@ -13,9 +13,11 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.onlythenaive.concept.ecmarunner.api.Sandbox;
 import com.onlythenaive.concept.ecmarunner.api.SandboxFactory;
 import com.onlythenaive.concept.ecmarunner.api.configuration.SandboxConfiguration;
+import com.onlythenaive.concept.ecmarunner.convention.Immutable;
 import com.onlythenaive.concept.ecmarunner.convention.InternalImplementation;
 
 @InternalImplementation
+@Immutable
 public final class SandboxFactoryHtmlUnitImpl implements SandboxFactory {
 
     private final SandboxConfiguration configuration;
