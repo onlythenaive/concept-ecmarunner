@@ -2,6 +2,7 @@ package com.onlythenaive.concept.ecmarunner.api;
 
 import com.onlythenaive.concept.ecmarunner.api.configuration.EnvironmentType;
 import com.onlythenaive.concept.ecmarunner.api.configuration.SandboxConfiguration;
+import com.onlythenaive.concept.ecmarunner.api.configuration.SandboxConfigurationBuilder;
 import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
 import com.onlythenaive.concept.ecmarunner.internal.htmlunit.SandboxFactoryHtmlUnitImpl;
 
@@ -14,6 +15,18 @@ import com.onlythenaive.concept.ecmarunner.internal.htmlunit.SandboxFactoryHtmlU
  */
 @PublishedApi
 public final class SandboxFactoryProvider {
+
+    /**
+     * Create a new sandbox configuration builder.
+     *
+     * @return new configuration builder.
+     *
+     * @see SandboxConfiguration
+     * @see SandboxConfigurationBuilder
+     */
+    public static SandboxConfigurationBuilder configurationBuilder() {
+        return new SandboxConfigurationBuilder();
+    }
 
     /**
      * Creates a new execution sandbox factory.
