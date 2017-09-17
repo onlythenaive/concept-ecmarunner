@@ -6,8 +6,6 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.onlythenaive.concept.ecmarunner.api.facade.InvoiceBuilderFacade;
-
 public class ResultTest {
 
     private List<String> console;
@@ -19,7 +17,7 @@ public class ResultTest {
     @Before
     public void beforeClass() {
         console = Arrays.asList("", "", "");
-        invoice = InvoiceBuilderFacade.builder().script("").build();
+        invoice = new InvoiceBuilder().script("").build();
         terminationType = TerminationType.SUCCESS;
         value = null;
         valueType = ResultValueType.NULL;

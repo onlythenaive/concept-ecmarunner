@@ -5,10 +5,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.onlythenaive.concept.ecmarunner.api.Invoice;
+import com.onlythenaive.concept.ecmarunner.api.InvoiceBuilder;
 import com.onlythenaive.concept.ecmarunner.api.Result;
 import com.onlythenaive.concept.ecmarunner.api.Sandbox;
 import com.onlythenaive.concept.ecmarunner.api.TerminationType;
-import com.onlythenaive.concept.ecmarunner.api.facade.InvoiceBuilderFacade;
 
 public class SandboxNashornImplTest {
 
@@ -16,7 +16,7 @@ public class SandboxNashornImplTest {
 
     @BeforeClass
     public static void initPreconditions() {
-        INVOICE = InvoiceBuilderFacade.builder().script("").build();
+        INVOICE = new InvoiceBuilder().script("").build();
     }
 
     private Sandbox sandbox;

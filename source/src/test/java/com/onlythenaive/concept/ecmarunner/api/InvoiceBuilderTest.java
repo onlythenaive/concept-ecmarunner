@@ -1,16 +1,13 @@
-package com.onlythenaive.concept.ecmarunner.internal.builder;
+package com.onlythenaive.concept.ecmarunner.api;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.onlythenaive.concept.ecmarunner.api.Invoice;
-import com.onlythenaive.concept.ecmarunner.api.InvoiceBuilder;
-
-public class InvoiceBuilderImplTest {
+public class InvoiceBuilderTest {
 
     @Test
     public void createNewInvoice() {
-        InvoiceBuilder builder = new InvoiceBuilderImpl();
+        InvoiceBuilder builder = new InvoiceBuilder();
         builder.script("some script");
         Invoice invoice = builder.build();
         Assert.assertEquals("", invoice.getDescription());
