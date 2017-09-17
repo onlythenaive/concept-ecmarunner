@@ -3,8 +3,6 @@ package com.onlythenaive.concept.ecmarunner.api;
 /**
  * Execution invoice builder API.
  *
- * @see InvoiceParser
- *
  * @author Ilia Gubarev
  */
 public interface InvoiceBuilder {

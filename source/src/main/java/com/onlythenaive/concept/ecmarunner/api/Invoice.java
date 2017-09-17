@@ -6,7 +6,6 @@ package com.onlythenaive.concept.ecmarunner.api;
  * Contains all the details required to execute contained script. Designed to be immutable.
  *
  * @see InvoiceBuilder
- * @see InvoiceParser
  * @see Sandbox
  *
  * @author Ilia Gubarev
