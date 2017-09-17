@@ -33,20 +33,20 @@ public final class Result {
                   final Object value,
                   final ResultValueType valueType) {
         if (console == null) {
-            throw new NullPointerException("execution console outputs cannot be null");
+            throw new NullPointerException("Execution console outputs cannot be null");
         }
         this.console = console;
         if (invoice == null) {
-            throw new NullPointerException("execution invoice cannot be null");
+            throw new NullPointerException("Execution invoice cannot be null");
         }
         this.invoice = invoice;
         if (terminationType == null) {
-            throw new NullPointerException("termination type cannot be null");
+            throw new NullPointerException("Termination type cannot be null");
         }
         this.terminationType = terminationType;
         this.value = value;
         if (valueType == null) {
-            throw new NullPointerException("value type cannot be null");
+            throw new NullPointerException("Result value type cannot be null");
         }
         // TODO: check if value type corresponds to the value
         this.valueType = valueType;

@@ -38,7 +38,7 @@ public enum ResultValueType {
     NUMBER,
 
     /**
-     * Complex object, including a map.
+     * Complex non-null object, including a map.
      */
     OBJECT,
 
