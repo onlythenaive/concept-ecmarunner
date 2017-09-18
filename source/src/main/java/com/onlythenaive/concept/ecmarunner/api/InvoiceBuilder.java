@@ -25,11 +25,6 @@ public final class InvoiceBuilder {
     public static final boolean DEFAULT_RESTRICTED = true;
 
     /**
-     * Default script to be executed.
-     */
-    public static final String DEFAULT_SCRIPT = null;
-
-    /**
      * Default execution timeout flag.
      */
     public static final boolean DEFAULT_TIMEOUT_ENABLED = true;
@@ -46,7 +41,7 @@ public final class InvoiceBuilder {
 
     private String description = DEFAULT_DESCRIPTION;
     private boolean restricted = DEFAULT_RESTRICTED;
-    private String script = DEFAULT_SCRIPT;
+    private String script = null;
     private boolean timeoutEnabled = DEFAULT_TIMEOUT_ENABLED;
     private long timeoutInMilliseconds = DEFAULT_TIMEOUT_IN_MILLISECONDS;
     private String version = DEFAULT_VERSION;
