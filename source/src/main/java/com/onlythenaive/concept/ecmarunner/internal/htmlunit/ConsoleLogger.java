@@ -28,10 +28,6 @@ public final class ConsoleLogger implements Logger {
         this.logLayout = logLayout;
     }
 
-    private boolean enabledForType(final LogRecordType type) {
-        return logLayout.isEnabled() && logLayout.getLevel().greaterThan(type);
-    }
-
     @Override
     public boolean isTraceEnabled() {
         return enabledForType(LogRecordType.TRACE);
@@ -113,5 +109,9 @@ public final class ConsoleLogger implements Logger {
         for (final Consumer<LogRecord> consumer : this.consumers) {
             consumer.accept(record);
         }
+    }
+
+    private boolean enabledForType(final LogRecordType type) {
+        return logLayout.isEnabled() && logLayout.getLevel().greaterThan(type);
     }
 }
