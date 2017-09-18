@@ -50,12 +50,12 @@ public final class Result {
                   final ResultValueType valueType) {
         Objects.requireNonNull(invoice, "Execution invoice cannot be null");
         this.invoice = invoice;
-        Objects.requireNonNull(invoice, "Execution log records cannot be null");
+        Objects.requireNonNull(logRecords, "Execution log records cannot be null");
         this.logRecords = new ArrayList<>(logRecords);
-        Objects.requireNonNull(invoice, "Termination type cannot be null");
+        Objects.requireNonNull(terminationType, "Termination type cannot be null");
         this.terminationType = terminationType;
         this.value = value;
-        Objects.requireNonNull(invoice, "Result value type cannot be null");
+        Objects.requireNonNull(valueType, "Result value type cannot be null");
         this.valueType = valueType;
         if (valueTypeMismatch()) {
             throw new IllegalArgumentException("Value type and actual result value mismatch");
