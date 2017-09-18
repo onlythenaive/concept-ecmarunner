@@ -123,12 +123,12 @@ public final class Result {
     }
 
     /**
-     * Gets a resulting value of this execution if any as <code>Number</code>.
+     * Gets a resulting value of this execution if any as <code>Double</code>.
      *
      * @return execution result value or <code>null</code>.
      */
-    public Number getValueAsNumber() {
-        return (Number) this.value;
+    public Double getValueAsDouble() {
+        return (Double) this.value;
     }
 
     /**
