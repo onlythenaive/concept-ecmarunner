@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.gargoylesoftware.htmlunit.ScriptResult;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.javascript.TimeoutError;
@@ -56,7 +57,8 @@ public final class SandboxHtmlUnitImpl implements Sandbox {
             } else {
                 webClient.getJavaScriptEngine().setJavaScriptTimeout(0);
             }
-            final Object value = this.page.executeJavaScript(invoice.getScript());
+            final ScriptResult scriptResult = this.page.executeJavaScript(invoice.getScript());
+            final Object value = scriptResult.getJavaScriptResult();
             return new Result(invoice, new ArrayList<>(records), TerminationType.SUCCESS, value, valueType(value));
         } catch (TimeoutError e) {
             return new Result(invoice, new ArrayList<>(records), TerminationType.TIMEOUT, null, ResultValueType.UNDEFINED);
@@ -72,6 +74,15 @@ public final class SandboxHtmlUnitImpl implements Sandbox {
     }
 
     private ResultValueType valueType(final Object value) {
+        if (value instanceof Boolean) {
+            return ResultValueType.BOOLEAN;
+        }
+        if (value instanceof Number) {
+            return ResultValueType.NUMBER;
+        }
+        if (value instanceof String) {
+            return  ResultValueType.STRING;
+        }
         // TODO: implement result value type detection
         return ResultValueType.OBJECT;
     }
