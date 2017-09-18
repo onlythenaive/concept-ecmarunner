@@ -8,6 +8,10 @@ import com.gargoylesoftware.htmlunit.ScriptResult;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.javascript.TimeoutError;
+import net.sourceforge.htmlunit.corejs.javascript.NativeArray;
+import net.sourceforge.htmlunit.corejs.javascript.NativeFunction;
+import net.sourceforge.htmlunit.corejs.javascript.NativeObject;
+import net.sourceforge.htmlunit.corejs.javascript.Undefined;
 
 import com.onlythenaive.concept.ecmarunner.api.Invoice;
 import com.onlythenaive.concept.ecmarunner.api.LogRecord;
@@ -58,8 +62,8 @@ public final class SandboxHtmlUnitImpl implements Sandbox {
                 webClient.getJavaScriptEngine().setJavaScriptTimeout(0);
             }
             final ScriptResult scriptResult = this.page.executeJavaScript(invoice.getScript());
-            final Object value = scriptResult.getJavaScriptResult();
-            return new Result(invoice, new ArrayList<>(records), TerminationType.SUCCESS, value, valueType(value));
+            final Object value = value(scriptResult);
+            return new Result(invoice, new ArrayList<>(records), TerminationType.SUCCESS, value, valueType(scriptResult));
         } catch (TimeoutError e) {
             return new Result(invoice, new ArrayList<>(records), TerminationType.TIMEOUT, null, ResultValueType.UNDEFINED);
         } catch (Exception e) {
@@ -73,15 +77,42 @@ public final class SandboxHtmlUnitImpl implements Sandbox {
         return inspector.apply(this.page, this.client, this.logger);
     }
 
-    private ResultValueType valueType(final Object value) {
+    private Object value(final ScriptResult scriptResult) {
+        final Object value = scriptResult.getJavaScriptResult();
+        if (value instanceof NativeArray) {
+            return new ArrayList<Object>((NativeArray) value);
+        }
+        if (value instanceof NativeFunction) {
+            return value.toString().replace("\n", "").trim();
+        }
+        if (value instanceof Undefined) {
+            return null;
+        }
+        return value;
+    }
+
+    private ResultValueType valueType(final ScriptResult scriptResult) {
+        final Object value = scriptResult.getJavaScriptResult();
+        if (value == null) {
+            return ResultValueType.NULL;
+        }
+        if (value instanceof NativeArray) {
+            return ResultValueType.ARRAY;
+        }
         if (value instanceof Boolean) {
             return ResultValueType.BOOLEAN;
+        }
+        if (value instanceof NativeFunction) {
+            return ResultValueType.FUNCTION;
         }
         if (value instanceof Number) {
             return ResultValueType.NUMBER;
         }
         if (value instanceof String) {
-            return  ResultValueType.STRING;
+            return ResultValueType.STRING;
+        }
+        if (value instanceof Undefined) {
+            return ResultValueType.UNDEFINED;
         }
         // TODO: implement result value type detection
         return ResultValueType.OBJECT;

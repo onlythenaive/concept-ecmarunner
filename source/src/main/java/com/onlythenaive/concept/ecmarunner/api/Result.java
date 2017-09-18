@@ -157,12 +157,12 @@ public final class Result {
                 return this.value instanceof List<?>;
             case BOOLEAN:
                 return this.value instanceof Boolean;
-            case FUNCTION:
             case NULL:
             case UNDEFINED:
                 return this.value == null;
             case NUMBER:
                 return this.value instanceof Number;
+            case FUNCTION:
             case STRING:
                 return this.value instanceof String;
             default:
