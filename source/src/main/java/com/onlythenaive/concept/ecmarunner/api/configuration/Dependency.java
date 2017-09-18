@@ -19,8 +19,8 @@ public final class Dependency {
         this.resource = resource;
         Objects.requireNonNull(type, "Dependency type cannot be null");
         this.type = type;
-        if (resourceTypeMismatch()) {
-            throw new IllegalArgumentException("Dependency ID and type mismatch");
+        if (!resourceTypeMatch()) {
+            throw new IllegalArgumentException("Dependency resource and type mismatch");
         }
     }
 
@@ -40,10 +40,6 @@ public final class Dependency {
             default:
                 return true;
         }
-    }
-
-    private boolean resourceTypeMismatch() {
-        return !resourceTypeMatch();
     }
 
     @Override
