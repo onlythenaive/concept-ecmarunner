@@ -19,7 +19,7 @@ public class ExecutionTimeoutTest extends GenericSandboxExecutionTest {
     }
 
     @Test
-    public void executeConsecutiveDependantInvoices() {
+    public void handleExecutionTimeout() {
         executeScript("var a = []; for (var i = 0; i < 10000; i++) { a.push(i) }", false, 1);
         assertLogEmpty();
         assertTerminationTimeout();
