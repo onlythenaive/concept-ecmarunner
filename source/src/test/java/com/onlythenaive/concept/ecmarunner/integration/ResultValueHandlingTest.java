@@ -15,7 +15,7 @@ public class ResultValueHandlingTest extends GenericSandboxExecutionTest {
 
     @Before
     public void prepareSandbox() {
-        sandboxWithCdnDependencies();
+        sandbox();
     }
 
     @Test

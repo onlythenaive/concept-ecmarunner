@@ -15,7 +15,7 @@ public class ConsecutiveExecutionTest extends GenericSandboxExecutionTest {
 
     @Before
     public void prepare() {
-        sandboxWithCdnDependencies();
+        sandbox();
     }
 
     @Test

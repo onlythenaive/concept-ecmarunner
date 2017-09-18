@@ -1,5 +1,8 @@
 package com.onlythenaive.concept.ecmarunner.integration.generic;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import org.junit.Assert;
@@ -11,6 +14,7 @@ import com.onlythenaive.concept.ecmarunner.api.Sandbox;
 import com.onlythenaive.concept.ecmarunner.api.SandboxFactory;
 import com.onlythenaive.concept.ecmarunner.api.SandboxFactoryProvider;
 import com.onlythenaive.concept.ecmarunner.api.TerminationType;
+import com.onlythenaive.concept.ecmarunner.api.configuration.Dependency;
 import com.onlythenaive.concept.ecmarunner.api.configuration.DependencyType;
 import com.onlythenaive.concept.ecmarunner.api.configuration.SandboxConfiguration;
 import com.onlythenaive.concept.ecmarunner.api.configuration.SandboxConfigurationBuilder;
@@ -68,16 +72,41 @@ public abstract class GenericSandboxExecutionTest {
         Assert.assertEquals(type, this.result.getValueType());
     }
 
+    protected List<Dependency> dependencies(final DependencyType type, final String... resources) {
+        final List<Dependency> dependencies = new ArrayList<>();
+        for (final String resource : resources) {
+            dependencies.add(new Dependency(resource, type));
+        }
+        return dependencies;
+    }
+
     protected void executeScript(final String script) {
-        this.invoice = this.sandbox.invoiceBuilder().script(script).build();
+        executeScript(script, false);
+    }
+
+    protected void executeScript(final String script, final boolean restricted) {
+        executeScript(script, restricted, 0);
+    }
+
+    protected void executeScript(final String script, final boolean restricted, final long timeout) {
+        this.invoice = this.sandbox.invoiceBuilder()
+                .restricted(restricted)
+                .script(script)
+                .timeoutEnabled(timeout > 0)
+                .timeoutInMilliseconds(timeout)
+                .build();
         this.result = this.sandbox.execute(this.invoice);
         Assert.assertEquals(this.invoice, this.result.getInvoice());
     }
 
-    protected void sandboxWithCdnDependencies(final String... resources) {
+    protected void sandbox() {
+        sandbox(Collections.emptyList());
+    }
+
+    protected void sandbox(final List<Dependency> dependencies) {
         final SandboxConfigurationBuilder builder = SandboxFactoryProvider.configurationBuilder();
-        for (final String resource : resources) {
-            builder.dependency(resource, DependencyType.CDN);
+        for (final Dependency dependency : dependencies) {
+            builder.dependency(dependency);
         }
         this.configuration = builder.build();
         this.factory = SandboxFactoryProvider.factory(this.configuration);
