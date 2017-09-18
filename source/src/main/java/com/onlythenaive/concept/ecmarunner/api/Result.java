@@ -57,7 +57,7 @@ public final class Result {
         this.value = value;
         Objects.requireNonNull(valueType, "Result value type cannot be null");
         this.valueType = valueType;
-        if (valueTypeMismatch()) {
+        if (!valueTypeMatch()) {
             throw new IllegalArgumentException("Value type and actual result value mismatch");
         }
     }
@@ -168,9 +168,5 @@ public final class Result {
             default:
                 return true;
         }
-    }
-
-    private boolean valueTypeMismatch() {
-        return !valueTypeMatch();
     }
 }
