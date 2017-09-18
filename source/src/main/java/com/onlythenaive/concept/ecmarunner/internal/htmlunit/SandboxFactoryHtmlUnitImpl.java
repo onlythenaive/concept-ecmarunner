@@ -10,8 +10,10 @@ import com.gargoylesoftware.htmlunit.WebWindow;
 import com.gargoylesoftware.htmlunit.html.HTMLParser;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
+import com.onlythenaive.concept.ecmarunner.api.Invoice;
 import com.onlythenaive.concept.ecmarunner.api.Sandbox;
 import com.onlythenaive.concept.ecmarunner.api.SandboxFactory;
+import com.onlythenaive.concept.ecmarunner.api.configuration.Dependency;
 import com.onlythenaive.concept.ecmarunner.api.configuration.SandboxConfiguration;
 import com.onlythenaive.concept.ecmarunner.convention.Immutable;
 import com.onlythenaive.concept.ecmarunner.convention.InternalImplementation;
@@ -35,7 +37,12 @@ public final class SandboxFactoryHtmlUnitImpl implements SandboxFactory {
             final StringWebResponse response = response();
             final WebWindow window = client.getCurrentWindow();
             final HtmlPage page = HTMLParser.parseHtml(response, window);
-            return new SandboxHtmlUnitImpl(client, logger, page);
+            final Sandbox sandbox = new SandboxHtmlUnitImpl(client, logger, page);
+            for (final Dependency dependency : configuration.getDependencies()) {
+                final Invoice dependencyInvoice = configuration.getDependencyResolver().resolve(dependency);
+                sandbox.execute(dependencyInvoice);
+            }
+            return sandbox;
         } catch (final IOException e) {
            throw new RuntimeException(e);
         }

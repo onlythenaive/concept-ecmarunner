@@ -61,8 +61,8 @@ public final class SandboxConfigurationBuilder {
         return this;
     }
 
-    public SandboxConfigurationBuilder dependency(final String id, final DependencyType type) {
-        this.dependencies.add(new Dependency(id, type));
+    public SandboxConfigurationBuilder dependency(final String resource, final DependencyType type) {
+        this.dependencies.add(new Dependency(resource, type));
         return this;
     }
 
