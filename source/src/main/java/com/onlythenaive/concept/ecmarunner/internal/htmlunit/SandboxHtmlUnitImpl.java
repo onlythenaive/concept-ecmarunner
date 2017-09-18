@@ -75,6 +75,7 @@ public final class SandboxHtmlUnitImpl implements Sandbox {
     }
 
     private ResultValueType valueType(final Object value) {
+        // TODO: implement result value type detection
         return ResultValueType.OBJECT;
     }
 }

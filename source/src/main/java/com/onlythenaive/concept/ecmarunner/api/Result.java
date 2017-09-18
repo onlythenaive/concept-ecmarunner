@@ -8,7 +8,7 @@ import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
 
 /**
  * Script execution result.
- *
+ * <br/>
  * Contains results of an invoice execution. Designed to be immutable.
  *
  * @see Invoice

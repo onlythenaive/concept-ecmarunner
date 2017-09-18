@@ -5,8 +5,8 @@ import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
 
 /**
  * Script execution invoice.
- * <p>
- * Contains all the details required to execute contained script. Designed to be immutable.
+ * <br/>
+ * Contains all the details required to execute contained script.
  *
  * @see InvoiceBuilder
  * @see Sandbox

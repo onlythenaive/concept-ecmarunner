@@ -46,57 +46,57 @@ public final class SandboxConfigurationBuilder {
     private ServerLayout serverLayout = DEFAULT_SERVER_LAYOUT;
     private String version = DEFAULT_VERSION;
 
-    SandboxConfigurationBuilder browserLayout(final BrowserLayout browserLayout) {
+    public SandboxConfigurationBuilder browserLayout(final BrowserLayout browserLayout) {
         this.browserLayout = browserLayout;
         return this;
     }
 
-    SandboxConfigurationBuilder browserLayout(final String html, final BrowserType type, final String url) {
+    public SandboxConfigurationBuilder browserLayout(final String html, final BrowserType type, final String url) {
         this.browserLayout = new BrowserLayout(html, type, url);
         return this;
     }
 
-    SandboxConfigurationBuilder dependency(final Dependency dependency) {
+    public SandboxConfigurationBuilder dependency(final Dependency dependency) {
         this.dependencies.add(dependency);
         return this;
     }
 
-    SandboxConfigurationBuilder dependency(final String id, final DependencyType type) {
+    public SandboxConfigurationBuilder dependency(final String id, final DependencyType type) {
         this.dependencies.add(new Dependency(id, type));
         return this;
     }
 
-    SandboxConfigurationBuilder dependencyResolver(final DependencyResolver dependencyResolver) {
+    public SandboxConfigurationBuilder dependencyResolver(final DependencyResolver dependencyResolver) {
         this.dependencyResolver = dependencyResolver;
         return this;
     }
 
-    SandboxConfigurationBuilder environmentType(final EnvironmentType environmentType) {
+    public SandboxConfigurationBuilder environmentType(final EnvironmentType environmentType) {
         this.environmentType = environmentType;
         return this;
     }
 
-    SandboxConfigurationBuilder logLayout(final LogLayout logLayout) {
+    public SandboxConfigurationBuilder logLayout(final LogLayout logLayout) {
         this.logLayout = logLayout;
         return this;
     }
 
-    SandboxConfigurationBuilder logLayout(final boolean enabled, final LogRecordType level) {
+    public SandboxConfigurationBuilder logLayout(final boolean enabled, final LogRecordType level) {
         this.logLayout = new LogLayout(enabled, level);
         return this;
     }
 
-    SandboxConfigurationBuilder serverLayout(final ServerLayout serverLayout) {
+    public SandboxConfigurationBuilder serverLayout(final ServerLayout serverLayout) {
         this.serverLayout = serverLayout;
         return this;
     }
 
-    SandboxConfigurationBuilder serverLayout(final ServerType type) {
+    public SandboxConfigurationBuilder serverLayout(final ServerType type) {
         this.serverLayout = new ServerLayout(type);
         return this;
     }
 
-    SandboxConfigurationBuilder version(final String version) {
+    public SandboxConfigurationBuilder version(final String version) {
         this.version = version;
         return this;
     }

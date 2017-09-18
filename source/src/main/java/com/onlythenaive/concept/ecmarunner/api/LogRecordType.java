@@ -60,7 +60,7 @@ public enum LogRecordType {
     /**
      * Checks if this log record type has a higher precedence than another one.
      *
-     * @param another log recored type to compare.
+     * @param another log record type to compare.
      * @return <code>true</code> if this type has a higher precedence than another.
      */
     public boolean greaterThan(final LogRecordType another) {
