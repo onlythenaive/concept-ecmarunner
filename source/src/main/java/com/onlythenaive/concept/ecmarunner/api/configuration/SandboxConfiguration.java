@@ -14,6 +14,7 @@ public final class SandboxConfiguration {
     private final List<Dependency> dependencies;
     private final DependencyResolver dependencyResolver;
     private final EnvironmentType environmentType;
+    private final LogLayout logLayout;
     private final ServerLayout serverLayout;
     private final String version;
 
@@ -21,6 +22,7 @@ public final class SandboxConfiguration {
                                 final List<Dependency> dependencies,
                                 final DependencyResolver dependencyResolver,
                                 final EnvironmentType environmentType,
+                                final LogLayout logLayout,
                                 final ServerLayout serverLayout,
                                 final String version) {
         // TODO: validate input arguments
@@ -28,6 +30,7 @@ public final class SandboxConfiguration {
         this.dependencies = new ArrayList<>(dependencies);
         this.dependencyResolver = dependencyResolver;
         this.environmentType = environmentType;
+        this.logLayout = logLayout;
         this.serverLayout = serverLayout;
         this.version = version;
     }
@@ -46,6 +49,10 @@ public final class SandboxConfiguration {
 
     public EnvironmentType getEnvironmentType() {
         return this.environmentType;
+    }
+
+    public LogLayout getLogLayout() {
+        return this.logLayout;
     }
 
     public ServerLayout getServerLayout() {

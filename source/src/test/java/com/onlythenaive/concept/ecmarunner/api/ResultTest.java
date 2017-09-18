@@ -1,6 +1,7 @@
 package com.onlythenaive.concept.ecmarunner.api;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Before;
@@ -8,16 +9,16 @@ import org.junit.Test;
 
 public class ResultTest {
 
-    private List<String> console;
     private Invoice invoice;
+    private List<LogRecord> logRecords;
     private TerminationType terminationType;
     private Object value;
     private ResultValueType valueType;
 
     @Before
     public void beforeClass() {
-        console = Arrays.asList("", "", "");
         invoice = new InvoiceBuilder().script("").build();
+        logRecords = Collections.emptyList();
         terminationType = TerminationType.SUCCESS;
         value = null;
         valueType = ResultValueType.NULL;
@@ -26,19 +27,8 @@ public class ResultTest {
     @Test
     public void createNewResult() {
         new Result(
-                console,
                 invoice,
-                terminationType,
-                value,
-                valueType
-        );
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void failOnNullConsole() {
-        new Result(
-                null,
-                invoice,
+                logRecords,
                 terminationType,
                 value,
                 valueType
@@ -48,7 +38,18 @@ public class ResultTest {
     @Test(expected = NullPointerException.class)
     public void failOnNullInvoice() {
         new Result(
-                console,
+                null,
+                logRecords,
+                terminationType,
+                value,
+                valueType
+        );
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void failOnNullRecords() {
+        new Result(
+                invoice,
                 null,
                 terminationType,
                 value,
@@ -59,8 +60,8 @@ public class ResultTest {
     @Test(expected = NullPointerException.class)
     public void failOnNullTerminationType() {
         new Result(
-                console,
                 invoice,
+                logRecords,
                 null,
                 value,
                 valueType
@@ -70,8 +71,8 @@ public class ResultTest {
     @Test(expected = NullPointerException.class)
     public void failOnNullValueType() {
         new Result(
-                console,
                 invoice,
+                logRecords,
                 terminationType,
                 value,
                 null

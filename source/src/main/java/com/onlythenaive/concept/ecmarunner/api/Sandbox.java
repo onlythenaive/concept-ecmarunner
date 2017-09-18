@@ -13,11 +13,13 @@ import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
 public interface Sandbox {
 
     /**
-     * Gets a list of console output lines created after the last same operation.
+     * Drains log records created after the last same operation.
      *
-     * @return list of console output lines.
+     * @return list of log records.
+     *
+     * @see LogRecord
      */
-    List<String> console();
+    List<LogRecord> drain();
 
     /**
      * Executes a specified invoice.

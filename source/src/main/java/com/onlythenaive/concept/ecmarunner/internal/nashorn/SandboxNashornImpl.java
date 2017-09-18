@@ -1,7 +1,7 @@
 package com.onlythenaive.concept.ecmarunner.internal.nashorn;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import javax.script.ScriptEngine;
@@ -9,6 +9,7 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 import com.onlythenaive.concept.ecmarunner.api.Invoice;
+import com.onlythenaive.concept.ecmarunner.api.LogRecord;
 import com.onlythenaive.concept.ecmarunner.api.Result;
 import com.onlythenaive.concept.ecmarunner.api.ResultValueType;
 import com.onlythenaive.concept.ecmarunner.api.Sandbox;
@@ -26,7 +27,7 @@ public final class SandboxNashornImpl implements Sandbox {
     }
 
     @Override
-    public List<String> console() {
+    public List<LogRecord> drain() {
         // TODO: return a real console output
         return new ArrayList<>();
     }
@@ -44,8 +45,8 @@ public final class SandboxNashornImpl implements Sandbox {
 
         // TODO: implement invoice execution
         return new Result(
-                Arrays.asList("output 1", "output 2"),
                 invoice,
+                Collections.emptyList(),
                 TerminationType.SUCCESS,
                 null,
                 ResultValueType.NULL

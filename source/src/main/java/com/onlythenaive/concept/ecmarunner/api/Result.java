@@ -21,25 +21,25 @@ import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
 @ImmutableByContract
 public final class Result {
 
-    private final List<String> console;
     private final Invoice invoice;
+    private final List<LogRecord> logRecords;
     private final TerminationType terminationType;
     private final Object value;
     private final ResultValueType valueType;
 
-    public Result(final List<String> console,
-                  final Invoice invoice,
+    public Result(final Invoice invoice,
+                  final List<LogRecord> logRecords,
                   final TerminationType terminationType,
                   final Object value,
                   final ResultValueType valueType) {
-        if (console == null) {
-            throw new NullPointerException("Execution console outputs cannot be null");
-        }
-        this.console = console;
         if (invoice == null) {
             throw new NullPointerException("Execution invoice cannot be null");
         }
         this.invoice = invoice;
+        if (logRecords == null) {
+            throw new NullPointerException("Execution log records cannot be null");
+        }
+        this.logRecords = new ArrayList<>(logRecords);
         if (terminationType == null) {
             throw new NullPointerException("Termination type cannot be null");
         }
@@ -53,15 +53,6 @@ public final class Result {
     }
 
     /**
-     * Gets a list of console output lines which were produced during execution of the invoice.
-     *
-     * @return list of console output lines.
-     */
-    public List<String> getConsole() {
-        return new ArrayList<>(this.console);
-    }
-
-    /**
      * Related execution invoice
      *
      * @return execution invoice.
@@ -70,6 +61,17 @@ public final class Result {
      */
     public Invoice getInvoice() {
         return this.invoice;
+    }
+
+    /**
+     * Gets a list of log records which were produced during execution of the invoice.
+     *
+     * @return list of log records.
+     *
+     * @see LogRecord
+     */
+    public List<LogRecord> getLogRecords() {
+        return new ArrayList<>(this.logRecords);
     }
 
     /**

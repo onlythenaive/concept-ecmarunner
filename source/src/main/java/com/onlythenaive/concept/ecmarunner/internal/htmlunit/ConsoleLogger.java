@@ -1,5 +1,6 @@
 package com.onlythenaive.concept.ecmarunner.internal.htmlunit;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -8,85 +9,109 @@ import java.util.function.Consumer;
 
 import com.gargoylesoftware.htmlunit.WebConsole.Logger;
 
+import com.onlythenaive.concept.ecmarunner.api.LogRecord;
+import com.onlythenaive.concept.ecmarunner.api.LogRecordType;
+import com.onlythenaive.concept.ecmarunner.api.configuration.LogLayout;
 import com.onlythenaive.concept.ecmarunner.convention.InternalImplementation;
 
 @InternalImplementation
 public final class ConsoleLogger implements Logger {
 
-    private final Set<Consumer<String>> consumers = new HashSet<>();
-    private final List<String> outputs = new ArrayList<>();
+    private final Set<Consumer<LogRecord>> consumers = new HashSet<>();
+    private final LogLayout logLayout;
+    private final List<LogRecord> records = new ArrayList<>();
+
+    public ConsoleLogger(final LogLayout logLayout) {
+        if (logLayout == null) {
+            throw new NullPointerException("Log layout cannot be null");
+        }
+        this.logLayout = logLayout;
+    }
+
+    private boolean enabledForType(final LogRecordType type) {
+        return logLayout.isEnabled() && logLayout.getLevel().greaterThan(type);
+    }
 
     @Override
     public boolean isTraceEnabled() {
-        return true;
+        return enabledForType(LogRecordType.TRACE);
     }
 
     @Override
     public void trace(final Object message) {
-        log(message);
+        accept(message, LogRecordType.TRACE);
     }
 
     @Override
     public boolean isDebugEnabled() {
-        return true;
+        return enabledForType(LogRecordType.DEBUG);
     }
 
     @Override
     public void debug(final Object message) {
-        log(message);
+        accept(message, LogRecordType.DEBUG);
     }
 
     @Override
     public boolean isInfoEnabled() {
-        return true;
+        return enabledForType(LogRecordType.INFO);
     }
 
     @Override
     public void info(final Object message) {
-        log(message);
+        accept(message, LogRecordType.INFO);
     }
 
     @Override
     public boolean isWarnEnabled() {
-        return true;
+        return enabledForType(LogRecordType.WARN);
     }
 
     @Override
     public void warn(final Object message) {
-        log(message);
+        accept(message, LogRecordType.WARN);
     }
 
     @Override
     public boolean isErrorEnabled() {
-        return true;
+        return enabledForType(LogRecordType.ERROR);
     }
 
     @Override
     public void error(final Object message) {
-        log(message);
+        accept(message, LogRecordType.ERROR);
     }
 
-    public List<String> getOutputs() {
-        return new ArrayList<>(this.outputs);
+    public List<LogRecord> getRecords() {
+        return new ArrayList<>(this.records);
     }
 
-    public void register(final Consumer<String> consumer) {
+    public void register(final Consumer<LogRecord> consumer) {
+        if (consumer == null) {
+            throw new NullPointerException("Log record consumer cannot be null");
+        }
         this.consumers.add(consumer);
     }
 
-    public void unregister(final Consumer<String> consumer) {
+    public void unregister(final Consumer<LogRecord> consumer) {
+        if (consumer == null) {
+            throw new NullPointerException("Log record consumer cannot be null");
+        }
         this.consumers.remove(consumer);
     }
 
-    private void log(final Object message) {
-        final String output = message.toString();
-        this.outputs.add(output);
-        consume(output);
+    private void accept(final Object message, final LogRecordType type) {
+        if (message == null) {
+            return;
+        }
+        final LogRecord record = new LogRecord(type, message.toString(), Instant.now());
+        this.records.add(record);
+        consume(record);
     }
 
-    private void consume(final String output) {
-        for (final Consumer<String> consumer : this.consumers) {
-            consumer.accept(output);
+    private void consume(final LogRecord record) {
+        for (final Consumer<LogRecord> consumer : this.consumers) {
+            consumer.accept(record);
         }
     }
 }
