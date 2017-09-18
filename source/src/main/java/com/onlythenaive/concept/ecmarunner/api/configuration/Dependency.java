@@ -33,8 +33,12 @@ public final class Dependency {
         return this.type;
     }
 
-    private boolean idTypeMismatch() {
+    private boolean idTypeMatch() {
         // TODO: implement id and type verification
-        return false;
+        return true;
+    }
+
+    private boolean idTypeMismatch() {
+        return !idTypeMatch();
     }
 }
