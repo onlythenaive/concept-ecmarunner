@@ -14,8 +14,17 @@ public final class BrowserLayout {
     public BrowserLayout(final String html,
                          final BrowserType type,
                          final String url) {
+        if (html == null) {
+            throw new NullPointerException("Browser layout HTML cannot be null");
+        }
         this.html = html;
+        if (type == null) {
+            throw new NullPointerException("Browser layout type cannot be null");
+        }
         this.type = type;
+        if (url == null) {
+            throw new NullPointerException("Browser layout URL cannot be null");
+        }
         this.url = url;
     }
 

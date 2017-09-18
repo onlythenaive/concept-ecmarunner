@@ -32,8 +32,17 @@ public final class LogRecord {
     public LogRecord(final LogRecordType type,
                      final String value,
                      final Instant when) {
+        if (type == null) {
+            throw new NullPointerException("Log record type cannot be null");
+        }
         this.type = type;
+        if (value == null) {
+            throw new NullPointerException("Log record value cannot be null");
+        }
         this.value = value;
+        if (when == null) {
+            throw new NullPointerException("Log record registration timestamp cannot be null");
+        }
         this.when = when;
     }
 

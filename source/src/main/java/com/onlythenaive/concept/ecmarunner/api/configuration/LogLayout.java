@@ -14,6 +14,9 @@ public final class LogLayout {
     public LogLayout(final boolean enabled,
                      final LogRecordType level) {
         this.enabled = enabled;
+        if (level == null) {
+            throw new NullPointerException("Log level cannot be null");
+        }
         this.level = level;
     }
 

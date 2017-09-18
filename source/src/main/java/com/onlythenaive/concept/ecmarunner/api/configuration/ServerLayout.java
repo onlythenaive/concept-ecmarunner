@@ -10,6 +10,9 @@ public final class ServerLayout {
     private final ServerType type;
 
     public ServerLayout(final ServerType type) {
+        if (type == null) {
+            throw new NullPointerException("Server type cannot be null");
+        }
         this.type = type;
     }
 

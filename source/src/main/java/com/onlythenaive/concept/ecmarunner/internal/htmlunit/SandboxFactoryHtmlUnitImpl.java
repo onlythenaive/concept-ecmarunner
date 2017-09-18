@@ -23,6 +23,9 @@ public final class SandboxFactoryHtmlUnitImpl implements SandboxFactory {
     private final SandboxConfiguration configuration;
 
     public SandboxFactoryHtmlUnitImpl(final SandboxConfiguration configuration) {
+        if (configuration == null) {
+            throw new NullPointerException("Sandbox configuration cannot be null");
+        }
         this.configuration = configuration;
     }
 

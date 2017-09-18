@@ -25,13 +25,33 @@ public final class SandboxConfiguration {
                                 final LogLayout logLayout,
                                 final ServerLayout serverLayout,
                                 final String version) {
-        // TODO: validate input arguments
+        if (browserLayout == null) {
+            throw new NullPointerException("Browser layout cannot be null");
+        }
         this.browserLayout = browserLayout;
+        if (dependencies == null) {
+            throw new NullPointerException("Dependencies cannot be null");
+        }
         this.dependencies = new ArrayList<>(dependencies);
+        if (dependencyResolver == null) {
+            throw new NullPointerException("Dependency resolver cannot be null");
+        }
         this.dependencyResolver = dependencyResolver;
+        if (environmentType == null) {
+            throw new NullPointerException("Environment type cannot be null");
+        }
         this.environmentType = environmentType;
+        if (logLayout == null) {
+            throw new NullPointerException("Log layout cannot be null");
+        }
         this.logLayout = logLayout;
+        if (serverLayout == null) {
+            throw new NullPointerException("Server layout cannot be null");
+        }
         this.serverLayout = serverLayout;
+        if (version == null) {
+            throw new NullPointerException("Configuration version cannot be null");
+        }
         this.version = version;
     }
 

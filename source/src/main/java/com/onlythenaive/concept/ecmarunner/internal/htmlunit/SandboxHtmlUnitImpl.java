@@ -27,8 +27,17 @@ public final class SandboxHtmlUnitImpl implements Sandbox {
     public SandboxHtmlUnitImpl(final WebClient client,
                                final ConsoleLogger logger,
                                final HtmlPage page) {
+        if (client == null) {
+            throw new NullPointerException("Web client cannot be null");
+        }
         this.client = client;
+        if (logger == null) {
+            throw new NullPointerException("Console logger cannot be null");
+        }
         this.logger = logger;
+        if (page == null) {
+            throw new NullPointerException("Page cannot be null");
+        }
         this.page = page;
         this.logger.register(logRecords::add);
     }
@@ -42,6 +51,7 @@ public final class SandboxHtmlUnitImpl implements Sandbox {
 
     @Override
     public Result execute(final Invoice invoice) {
+        // TODO: refactor this method
         final List<LogRecord> records = new ArrayList<>();
         try (final WebClient webClient = this.client) {
             this.logger.register(records::add);
