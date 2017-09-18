@@ -107,7 +107,7 @@ public final class ConsoleLogger implements Logger {
     }
 
     private boolean enabledForType(final LogRecordType type) {
-        return logLayout.isEnabled() && logLayout.getLevel().greaterThan(type);
+        return logLayout.isEnabled() && !logLayout.getLevel().greaterThan(type);
     }
 
     private void requireNonNullConsumer(final Consumer<LogRecord> consumer) {
