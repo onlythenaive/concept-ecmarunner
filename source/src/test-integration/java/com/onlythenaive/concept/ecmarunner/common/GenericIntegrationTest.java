@@ -1,4 +1,4 @@
-package com.onlythenaive.concept.ecmarunner.integration.generic;
+package com.onlythenaive.concept.ecmarunner.common;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,7 +21,12 @@ import com.onlythenaive.concept.ecmarunner.api.configuration.DependencyType;
 import com.onlythenaive.concept.ecmarunner.api.configuration.SandboxConfiguration;
 import com.onlythenaive.concept.ecmarunner.api.configuration.SandboxConfigurationBuilder;
 
-public abstract class GenericSandboxExecutionTest {
+/**
+ * Generic acceptance test class.
+ *
+ * @author Ilia Gubarev
+ */
+public abstract class GenericIntegrationTest {
 
     protected SandboxConfiguration configuration;
     protected SandboxFactory factory;

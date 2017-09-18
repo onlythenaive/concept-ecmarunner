@@ -1,20 +1,17 @@
-package com.onlythenaive.concept.ecmarunner.integration;
+package com.onlythenaive.concept.ecmarunner;
 
 import java.util.List;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
 
 import com.onlythenaive.concept.ecmarunner.api.ResultValueType;
 import com.onlythenaive.concept.ecmarunner.api.configuration.Dependency;
 import com.onlythenaive.concept.ecmarunner.api.configuration.DependencyType;
-import com.onlythenaive.concept.ecmarunner.convention.Integration;
-import com.onlythenaive.concept.ecmarunner.integration.generic.GenericSandboxExecutionTest;
+import com.onlythenaive.concept.ecmarunner.common.GenericIntegrationTest;
+import com.onlythenaive.concept.ecmarunner.convention.IntegrationTest;
 
-@Integration
-@RunWith(JUnit4.class)
-public class DependencyResolutionTest extends GenericSandboxExecutionTest {
+@IntegrationTest
+public class DependencyResolutionTest extends GenericIntegrationTest {
 
     @Test
     public void resolveAndUseJqueryViaCdn() {

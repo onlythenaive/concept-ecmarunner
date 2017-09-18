@@ -7,7 +7,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import org.junit.experimental.categories.Category;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 
 /**
  * Marks a test class to be an integration test.
@@ -18,11 +19,7 @@ import org.junit.experimental.categories.Category;
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-@Category(IntegrationTest.class)
-public @interface Integration {
+@RunWith(JUnit4.class)
+public @interface IntegrationTest {
 
-    /**
-     * Short description of the integration test.
-     */
-    String value() default "";
 }
