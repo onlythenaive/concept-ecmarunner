@@ -15,14 +15,14 @@ public class ConsecutiveExecutionTest extends GenericSandboxExecutionTest {
 
     @Before
     public void prepare() {
-        sandbox();
+        resetSandbox();
     }
 
     @Test
     public void executeConsecutiveDependantInvoices() {
-        executeScript("var a = 2");
-        executeScript("var b = 40");
-        executeScript("a + b");
+        execute("var a = 2");
+        execute("var b = 40");
+        execute("a + b");
         assertLogEmpty();
         assertTerminationSuccess();
         assertValue(42.0);

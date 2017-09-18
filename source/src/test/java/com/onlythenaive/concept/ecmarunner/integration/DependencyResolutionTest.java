@@ -20,8 +20,8 @@ public class DependencyResolutionTest extends GenericSandboxExecutionTest {
     public void resolveAndUseJqueryViaCdn() {
         final String cdnJquery = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js";
         final List<Dependency> dependencies = dependencies(DependencyType.CDN, cdnJquery);
-        sandbox(dependencies);
-        executeScript("$('body')");
+        resetSandbox(dependencies);
+        execute("$('body')");
         assertLogEmpty();
         assertTerminationSuccess();
         assertValueNotNull();

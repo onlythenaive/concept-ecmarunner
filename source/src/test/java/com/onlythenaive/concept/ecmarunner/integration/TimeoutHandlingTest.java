@@ -11,16 +11,16 @@ import com.onlythenaive.concept.ecmarunner.integration.generic.GenericSandboxExe
 
 @Integration
 @RunWith(JUnit4.class)
-public class ExecutionTimeoutTest extends GenericSandboxExecutionTest {
+public class TimeoutHandlingTest extends GenericSandboxExecutionTest {
 
     @Before
     public void prepare() {
-        sandbox();
+        resetSandbox();
     }
 
     @Test
     public void handleExecutionTimeout() {
-        executeScript("var a = []; for (var i = 0; i < 10000; i++) { a.push(i) }", false, 1);
+        execute("var a = []; for (var i = 0; i < 10000; i++) { a.push(i) }", false, 1);
         assertLogEmpty();
         assertTerminationTimeout();
         assertValue(null);

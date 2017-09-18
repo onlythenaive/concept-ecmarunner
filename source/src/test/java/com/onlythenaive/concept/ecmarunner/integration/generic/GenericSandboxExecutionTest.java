@@ -112,15 +112,15 @@ public abstract class GenericSandboxExecutionTest {
         return dependencies;
     }
 
-    protected void executeScript(final String script) {
-        executeScript(script, false);
+    protected void execute(final String script) {
+        execute(script, false);
     }
 
-    protected void executeScript(final String script, final boolean restricted) {
-        executeScript(script, restricted, 0);
+    protected void execute(final String script, final boolean restricted) {
+        execute(script, restricted, 0);
     }
 
-    protected void executeScript(final String script, final boolean restricted, final long timeout) {
+    protected void execute(final String script, final boolean restricted, final long timeout) {
         this.invoice = this.sandbox.invoiceBuilder()
                 .restricted(restricted)
                 .script(script)
@@ -131,11 +131,11 @@ public abstract class GenericSandboxExecutionTest {
         Assert.assertEquals(this.invoice, this.result.getInvoice());
     }
 
-    protected void sandbox() {
-        sandbox(Collections.emptyList());
+    protected void resetSandbox() {
+        resetSandbox(Collections.emptyList());
     }
 
-    protected void sandbox(final List<Dependency> dependencies) {
+    protected void resetSandbox(final List<Dependency> dependencies) {
         final SandboxConfigurationBuilder builder = SandboxFactoryProvider.configurationBuilder();
         for (final Dependency dependency : dependencies) {
             builder.dependency(dependency);

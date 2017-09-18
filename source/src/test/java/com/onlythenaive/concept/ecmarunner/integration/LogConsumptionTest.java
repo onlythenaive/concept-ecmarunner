@@ -15,12 +15,12 @@ public class LogConsumptionTest extends GenericSandboxExecutionTest {
 
     @Before
     public void prepare() {
-        sandbox();
+        resetSandbox();
     }
 
     @Test
     public void accessExecutionLogRecords() {
-        executeScript("for (var i = 0; i < 5; i++) { console.log(i) }");
+        execute("for (var i = 0; i < 5; i++) { console.log(i) }");
         assertLogSize(5);
         assertLogRecord(0, "0.0");
         assertLogRecord(1, "1.0");

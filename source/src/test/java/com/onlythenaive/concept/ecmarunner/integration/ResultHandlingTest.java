@@ -11,16 +11,16 @@ import com.onlythenaive.concept.ecmarunner.integration.generic.GenericSandboxExe
 
 @Integration
 @RunWith(JUnit4.class)
-public class ResultValueHandlingTest extends GenericSandboxExecutionTest {
+public class ResultHandlingTest extends GenericSandboxExecutionTest {
 
     @Before
     public void prepareSandbox() {
-        sandbox();
+        resetSandbox();
     }
 
     @Test
     public void handleArray() {
-        executeScript("var result = [1, 2, 3]; result");
+        execute("var result = [1, 2, 3]; result");
         assertLogEmpty();
         assertTerminationSuccess();
         assertValueSize(3);
@@ -29,7 +29,7 @@ public class ResultValueHandlingTest extends GenericSandboxExecutionTest {
 
     @Test
     public void handleBoolean() {
-        executeScript("var result = 1 > 2; result");
+        execute("var result = 1 > 2; result");
         assertLogEmpty();
         assertTerminationSuccess();
         assertValue(false);
@@ -38,7 +38,7 @@ public class ResultValueHandlingTest extends GenericSandboxExecutionTest {
 
     @Test
     public void handleFunction() {
-        executeScript("var result = function () {}; result");
+        execute("var result = function () {}; result");
         assertLogEmpty();
         assertTerminationSuccess();
         assertValueLike("function \\(\\) \\{.*\\}");
@@ -47,7 +47,7 @@ public class ResultValueHandlingTest extends GenericSandboxExecutionTest {
 
     @Test
     public void handleNumber() {
-        executeScript("var result = 1 + 2 * 5; result");
+        execute("var result = 1 + 2 * 5; result");
         assertLogEmpty();
         assertTerminationSuccess();
         assertValue(11.0);
@@ -56,7 +56,7 @@ public class ResultValueHandlingTest extends GenericSandboxExecutionTest {
 
     @Test
     public void handleNull() {
-        executeScript("var result = null; result");
+        execute("var result = null; result");
         assertLogEmpty();
         assertTerminationSuccess();
         assertValue(null);
@@ -65,7 +65,7 @@ public class ResultValueHandlingTest extends GenericSandboxExecutionTest {
 
     @Test
     public void handleObject() {
-        executeScript("var result = {a: 1, b: 2}; result");
+        execute("var result = {a: 1, b: 2}; result");
         assertLogEmpty();
         assertTerminationSuccess();
         assertValueNotNull();
@@ -74,7 +74,7 @@ public class ResultValueHandlingTest extends GenericSandboxExecutionTest {
 
     @Test
     public void handleString() {
-        executeScript("var result = ['Hello', 'World!'].join(' '); result");
+        execute("var result = ['Hello', 'World!'].join(' '); result");
         assertLogEmpty();
         assertTerminationSuccess();
         assertValue("Hello World!");
@@ -83,7 +83,7 @@ public class ResultValueHandlingTest extends GenericSandboxExecutionTest {
 
     @Test
     public void handleUndefined() {
-        executeScript("var result; result");
+        execute("var result; result");
         assertLogEmpty();
         assertTerminationSuccess();
         assertValue(null);

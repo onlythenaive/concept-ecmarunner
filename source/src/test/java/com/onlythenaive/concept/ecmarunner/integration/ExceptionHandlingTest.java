@@ -15,12 +15,12 @@ public class ExceptionHandlingTest extends GenericSandboxExecutionTest {
 
     @Before
     public void prepare() {
-        sandbox();
+        resetSandbox();
     }
 
     @Test
     public void handleScriptException() {
-        executeScript("var test = 'not a function'; test()");
+        execute("var test = 'not a function'; test()");
         assertLogEmpty();
         assertTerminationException();
         assertValue(null);
