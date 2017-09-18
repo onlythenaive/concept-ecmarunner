@@ -8,6 +8,8 @@ import java.util.regex.Pattern;
 import org.junit.Assert;
 
 import com.onlythenaive.concept.ecmarunner.api.Invoice;
+import com.onlythenaive.concept.ecmarunner.api.LogRecord;
+import com.onlythenaive.concept.ecmarunner.api.LogRecordType;
 import com.onlythenaive.concept.ecmarunner.api.Result;
 import com.onlythenaive.concept.ecmarunner.api.ResultValueType;
 import com.onlythenaive.concept.ecmarunner.api.Sandbox;
@@ -29,6 +31,36 @@ public abstract class GenericSandboxExecutionTest {
 
     protected void assertLogEmpty() {
         assertLogSize(0);
+    }
+
+    protected void assertLogNotEmpty() {
+        Assert.assertFalse(this.result.getLogRecords().isEmpty());
+    }
+
+    protected void assertLogRecord(final String value) {
+        assertLogNotEmpty();
+        final LogRecord record = this.result.getLogRecords().get(this.result.getLogRecords().size() - 1);
+        Assert.assertEquals(value, record.getValue());
+    }
+
+    protected void assertLogRecord(final String value, final LogRecordType type) {
+        assertLogNotEmpty();
+        final LogRecord record = this.result.getLogRecords().get(this.result.getLogRecords().size() - 1);
+        Assert.assertEquals(value, record.getValue());
+        Assert.assertEquals(type, record.getType());
+    }
+
+    protected void assertLogRecord(final int index, final String value) {
+        Assert.assertTrue(index < this.result.getLogRecords().size());
+        final LogRecord record = this.result.getLogRecords().get(index);
+        Assert.assertEquals(value, record.getValue());
+    }
+
+    protected void assertLogRecord(final int index, final String value, final LogRecordType type) {
+        Assert.assertTrue(index < this.result.getLogRecords().size());
+        final LogRecord record = this.result.getLogRecords().get(index);
+        Assert.assertEquals(value, record.getValue());
+        Assert.assertEquals(type, record.getType());
     }
 
     protected void assertLogSize(final int size) {
