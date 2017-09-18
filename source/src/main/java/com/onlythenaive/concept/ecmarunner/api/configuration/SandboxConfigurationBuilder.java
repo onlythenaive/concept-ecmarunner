@@ -33,7 +33,7 @@ public final class SandboxConfigurationBuilder {
 
     static {
         DEFAULT_BROWSER_LAYOUT = new BrowserLayout(DEFAULT_BROWSER_HTML, DEFAULT_BROWSER_TYPE, DEFAULT_BROWSER_URL);
-        DEFAULT_DEPENDENCY_RESOLVER = new DependencyResolverDefaultImpl();
+        DEFAULT_DEPENDENCY_RESOLVER = new DependencyResolverDefaultImpl(true);
         DEFAULT_LOG_LAYOUT = new LogLayout(DEFAULT_LOG_ENABLED, DEFAULT_LOG_LEVEL);
         DEFAULT_SERVER_LAYOUT = null;
     }

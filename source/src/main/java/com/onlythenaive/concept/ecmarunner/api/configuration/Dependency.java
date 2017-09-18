@@ -9,34 +9,51 @@ import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
 @Immutable
 public final class Dependency {
 
-    private final String id;
+    private final String resource;
     private final DependencyType type;
 
-    public Dependency(final String id,
+    public Dependency(final String resource,
                       final DependencyType type) {
-        Objects.requireNonNull(id, "Dependency ID cannot be null");
-        this.id = id;
+        Objects.requireNonNull(resource, "Dependency resource cannot be null");
+        this.resource = resource;
         Objects.requireNonNull(type, "Dependency type cannot be null");
         this.type = type;
-        if (idTypeMismatch()) {
+        if (resourceTypeMismatch()) {
             throw new IllegalArgumentException("Dependency ID and type mismatch");
         }
     }
 
-    public String getId() {
-        return this.id;
+    public String getResource() {
+        return this.resource;
     }
 
     public DependencyType getType() {
         return this.type;
     }
 
-    private boolean idTypeMatch() {
-        // TODO: implement id and type verification
+    private boolean resourceTypeMatch() {
+        // TODO: implement resource and type verification
         return true;
     }
 
-    private boolean idTypeMismatch() {
-        return !idTypeMatch();
+    private boolean resourceTypeMismatch() {
+        return !resourceTypeMatch();
+    }
+
+    @Override
+    public boolean equals(final Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || this.getClass() != object.getClass()) {
+            return false;
+        }
+        final Dependency that = (Dependency) object;
+        return Objects.equals(this.resource, that.resource) && this.type == that.type;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(resource, type);
     }
 }

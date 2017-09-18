@@ -7,8 +7,6 @@ import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
 @Immutable
 public enum DependencyType {
 
-    AUTO,
-
     CDN,
 
     NPM
