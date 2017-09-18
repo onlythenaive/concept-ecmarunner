@@ -26,7 +26,6 @@ public final class SandboxConfiguration {
                                 final LogLayout logLayout,
                                 final ServerLayout serverLayout,
                                 final String version) {
-        Objects.requireNonNull(browserLayout, "Browser layout cannot be null");
         this.browserLayout = browserLayout;
         Objects.requireNonNull(dependencies, "Dependencies cannot be null");
         this.dependencies = new ArrayList<>(dependencies);
@@ -36,10 +35,12 @@ public final class SandboxConfiguration {
         this.environmentType = environmentType;
         Objects.requireNonNull(logLayout, "Log layout cannot be null");
         this.logLayout = logLayout;
-        Objects.requireNonNull(serverLayout, "Server layout cannot be null");
         this.serverLayout = serverLayout;
         Objects.requireNonNull(version, "Configuration version cannot be null");
         this.version = version;
+        if (!environmentLayoutTypeMatch()) {
+            throw new IllegalArgumentException("Environment type mismatches with provided layouts");
+        }
     }
 
     public BrowserLayout getBrowserLayout() {
@@ -68,5 +69,17 @@ public final class SandboxConfiguration {
 
     public String getVersion() {
         return this.version;
+    }
+
+    private boolean environmentLayoutTypeMatch() {
+        switch (this.environmentType) {
+            case AUTO:
+                return this.browserLayout != null || this.serverLayout != null;
+            case BROWSER:
+                return this.browserLayout != null;
+            case SERVER:
+            default:
+                return this.serverLayout != null;
+        }
     }
 }
