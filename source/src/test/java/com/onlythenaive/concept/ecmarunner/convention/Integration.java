@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 import org.junit.experimental.categories.Category;
 
 /**
- * Marks a test class to be a specification (unit) test.
+ * Marks a test class to be an integration test.
  *
  * @author Ilia Gubarev
  */
@@ -18,11 +18,11 @@ import org.junit.experimental.categories.Category;
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-@Category(UnitTest.class)
-public @interface Specification {
+@Category(IntegrationTest.class)
+public @interface Integration {
 
     /**
-     * Target class.
+     * Short description of the integration test.
      */
-    Class<?> value();
+    String value() default "";
 }
