@@ -12,22 +12,30 @@ import com.onlythenaive.concept.ecmarunner.internal.configuration.DependencyReso
 @Builder(SandboxConfiguration.class)
 public final class SandboxConfigurationBuilder {
 
-    private static final String DEFAULT_BROWSER_HTML = "<html><body></body></html>";
+    public static final String DEFAULT_BROWSER_HTML = "<html><body></body></html>";
+
+    public static final String DEFAULT_BROWSER_URL = "http://ecmarunner.concept.onlythenaive.com";
+
+    public static final BrowserType DEFAULT_BROWSER_TYPE = BrowserType.AUTO;
+
+    public static final EnvironmentType DEFAULT_ENVIRONMENT_TYPE = EnvironmentType.AUTO;
+
+    public static final boolean DEFAULT_LOG_ENABLED = true;
+
+    public static final LogRecordType DEFAULT_LOG_LEVEL = LogRecordType.INFO;
+
+    public static final String DEFAULT_VERSION = "1.0";
+
     private static final BrowserLayout DEFAULT_BROWSER_LAYOUT;
-    private static final String DEFAULT_BROWSER_URL = "http://ecmarunner.concept.onlythenaive.com";
-    private static final BrowserType DEFAULT_BROWSER_TYPE = BrowserType.AUTO;
     private static final DependencyResolver DEFAULT_DEPENDENCY_RESOLVER;
-    private static final EnvironmentType DEFAULT_ENVIRONMENT_TYPE = EnvironmentType.AUTO;
-    private static final boolean DEFAULT_LOG_ENABLED = true;
     private static final LogLayout DEFAULT_LOG_LAYOUT;
-    private static final LogRecordType DEFAULT_LOG_LEVEL = LogRecordType.INFO;
-    private static final ServerLayout DEFAULT_SERVER_LAYOUT = null;
-    private static final String DEFAULT_VERSION = "1.0";
+    private static final ServerLayout DEFAULT_SERVER_LAYOUT;
 
     static {
         DEFAULT_BROWSER_LAYOUT = new BrowserLayout(DEFAULT_BROWSER_HTML, DEFAULT_BROWSER_TYPE, DEFAULT_BROWSER_URL);
         DEFAULT_DEPENDENCY_RESOLVER = new DependencyResolverDefaultImpl();
         DEFAULT_LOG_LAYOUT = new LogLayout(DEFAULT_LOG_ENABLED, DEFAULT_LOG_LEVEL);
+        DEFAULT_SERVER_LAYOUT = null;
     }
 
     private BrowserLayout browserLayout = DEFAULT_BROWSER_LAYOUT;
