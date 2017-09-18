@@ -22,17 +22,17 @@ public final class InvoiceBuilder {
     /**
      * Default restriction flag.
      */
-    public static final boolean DEFAULT_RESTRICTED = true;
+    public static final boolean DEFAULT_RESTRICTED = false;
 
     /**
      * Default execution timeout flag.
      */
-    public static final boolean DEFAULT_TIMEOUT_ENABLED = true;
+    public static final boolean DEFAULT_TIMEOUT_ENABLED = false;
 
     /**
      * Default execution timeout value.
      */
-    public static final long DEFAULT_TIMEOUT_IN_MILLISECONDS = 5 * 1000;
+    public static final long DEFAULT_TIMEOUT_IN_MILLISECONDS = 1000;
 
     /**
      * Default invoice version.

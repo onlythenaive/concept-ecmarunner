@@ -32,7 +32,7 @@ public class InvoiceBuilderTest {
 
         PowerMockito
                 .verifyNew(Invoice.class)
-                .withArguments("", true, "1 + 2", true, 5000L, "1.0");
+                .withArguments("", false, "1 + 2", false, 1000L, "1.0");
 
         Assert.assertEquals(invoice, invoice);
     }
