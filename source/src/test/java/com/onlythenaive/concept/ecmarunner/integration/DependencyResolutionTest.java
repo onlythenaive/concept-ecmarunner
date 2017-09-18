@@ -17,11 +17,6 @@ public class DependencyResolutionTest extends GenericSandboxExecutionTest {
     @Test
     public void resolveAndUseJqueryViaCdn() {
         sandboxWithCdnDependencies(this.cdnJquery);
-        executeScript("$");
-        assertLogEmpty();
-        assertTerminationSuccess();
-        assertValueNotNull();
-        assertValueType(ResultValueType.FUNCTION);
         executeScript("$('body')");
         assertLogEmpty();
         assertTerminationSuccess();
