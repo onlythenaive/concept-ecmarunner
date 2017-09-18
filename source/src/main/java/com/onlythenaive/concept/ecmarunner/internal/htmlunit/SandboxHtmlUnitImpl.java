@@ -10,7 +10,6 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.javascript.TimeoutError;
 import net.sourceforge.htmlunit.corejs.javascript.NativeArray;
 import net.sourceforge.htmlunit.corejs.javascript.NativeFunction;
-import net.sourceforge.htmlunit.corejs.javascript.NativeObject;
 import net.sourceforge.htmlunit.corejs.javascript.Undefined;
 
 import com.onlythenaive.concept.ecmarunner.api.Invoice;
@@ -54,20 +53,26 @@ public final class SandboxHtmlUnitImpl implements Sandbox {
         // TODO: refactor this method
         Objects.requireNonNull(invoice, "Execution invoice cannot be null");
         final List<LogRecord> records = new ArrayList<>();
-        try (final WebClient webClient = this.client) {
+        try {
             this.logger.register(records::add);
             if (invoice.isTimeoutEnabled()) {
-                webClient.getJavaScriptEngine().setJavaScriptTimeout(invoice.getTimeoutInMilliseconds());
+                client.getJavaScriptEngine().setJavaScriptTimeout(invoice.getTimeoutInMilliseconds());
             } else {
-                webClient.getJavaScriptEngine().setJavaScriptTimeout(0);
+                client.getJavaScriptEngine().setJavaScriptTimeout(0);
             }
             final ScriptResult scriptResult = this.page.executeJavaScript(invoice.getScript());
             final Object value = value(scriptResult);
             return new Result(invoice, new ArrayList<>(records), TerminationType.SUCCESS, value, valueType(scriptResult));
-        } catch (TimeoutError e) {
-            return new Result(invoice, new ArrayList<>(records), TerminationType.TIMEOUT, null, ResultValueType.UNDEFINED);
-        } catch (Exception e) {
-            return new Result(invoice, new ArrayList<>(records), TerminationType.EXCEPTION, null, ResultValueType.UNDEFINED);
+        } catch (RuntimeException e) {
+            client.getJavaScriptEngine().shutdown();
+            final Throwable cause = e.getCause();
+            final TerminationType type;
+            if (cause instanceof TimeoutError) {
+                type = TerminationType.TIMEOUT;
+            } else {
+                type = TerminationType.EXCEPTION;
+            }
+            return new Result(invoice, new ArrayList<>(records), type, null, ResultValueType.UNDEFINED);
         }
     }
 

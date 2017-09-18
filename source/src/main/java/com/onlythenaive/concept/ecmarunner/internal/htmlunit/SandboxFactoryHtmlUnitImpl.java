@@ -31,7 +31,8 @@ public final class SandboxFactoryHtmlUnitImpl implements SandboxFactory {
 
     @Override
     public Sandbox create() {
-        try (final WebClient client = new WebClient()) {
+        try {
+            final WebClient client = new WebClient();
             final ConsoleLogger logger = new ConsoleLogger(configuration.getLogLayout());
             client.getWebConsole().setLogger(logger);
             final StringWebResponse response = response();
