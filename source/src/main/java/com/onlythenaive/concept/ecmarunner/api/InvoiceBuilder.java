@@ -27,7 +27,7 @@ public final class InvoiceBuilder {
     /**
      * Default script to be executed.
      */
-    public static final String DEFAULT_SCRIPT = "";
+    public static final String DEFAULT_SCRIPT = null;
 
     /**
      * Default execution timeout flag.
