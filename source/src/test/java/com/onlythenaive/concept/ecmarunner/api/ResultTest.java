@@ -1,6 +1,5 @@
 package com.onlythenaive.concept.ecmarunner.api;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 

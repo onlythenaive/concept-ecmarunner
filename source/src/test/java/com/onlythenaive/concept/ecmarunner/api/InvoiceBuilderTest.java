@@ -1,17 +1,15 @@
 package com.onlythenaive.concept.ecmarunner.api;
 
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
-import com.onlythenaive.concept.ecmarunner.convention.Specification;
+import com.onlythenaive.concept.ecmarunner.convention.UnitTest;
 
-@Specification(InvoiceBuilder.class)
+@UnitTest(InvoiceBuilder.class)
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({Invoice.class, InvoiceBuilder.class})
 public class InvoiceBuilderTest {
