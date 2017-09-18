@@ -2,6 +2,7 @@ package com.onlythenaive.concept.ecmarunner.internal.htmlunit;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
@@ -27,17 +28,11 @@ public final class SandboxHtmlUnitImpl implements Sandbox {
     public SandboxHtmlUnitImpl(final WebClient client,
                                final ConsoleLogger logger,
                                final HtmlPage page) {
-        if (client == null) {
-            throw new NullPointerException("Web client cannot be null");
-        }
+        Objects.requireNonNull(client, "Web client cannot be null");
         this.client = client;
-        if (logger == null) {
-            throw new NullPointerException("Console logger cannot be null");
-        }
+        Objects.requireNonNull(logger, "Console logger cannot be null");
         this.logger = logger;
-        if (page == null) {
-            throw new NullPointerException("Page cannot be null");
-        }
+        Objects.requireNonNull(page, "Page cannot be null");
         this.page = page;
         this.logger.register(logRecords::add);
     }
@@ -52,6 +47,7 @@ public final class SandboxHtmlUnitImpl implements Sandbox {
     @Override
     public Result execute(final Invoice invoice) {
         // TODO: refactor this method
+        Objects.requireNonNull(invoice, "Execution invoice cannot be null");
         final List<LogRecord> records = new ArrayList<>();
         try (final WebClient webClient = this.client) {
             this.logger.register(records::add);
@@ -71,6 +67,7 @@ public final class SandboxHtmlUnitImpl implements Sandbox {
 
     @Override
     public <T> T inspect(final SandboxInspector<T> inspector) {
+        Objects.requireNonNull(inspector, "Sandbox inspector cannot be null");
         return inspector.apply(this.page, this.client, this.logger);
     }
 

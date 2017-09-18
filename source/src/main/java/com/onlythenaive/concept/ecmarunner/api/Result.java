@@ -2,6 +2,7 @@ package com.onlythenaive.concept.ecmarunner.api;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import com.onlythenaive.concept.ecmarunner.convention.ImmutableByContract;
 import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
@@ -47,22 +48,14 @@ public final class Result {
                   final TerminationType terminationType,
                   final Object value,
                   final ResultValueType valueType) {
-        if (invoice == null) {
-            throw new NullPointerException("Execution invoice cannot be null");
-        }
+        Objects.requireNonNull(invoice, "Execution invoice cannot be null");
         this.invoice = invoice;
-        if (logRecords == null) {
-            throw new NullPointerException("Execution log records cannot be null");
-        }
+        Objects.requireNonNull(invoice, "Execution log records cannot be null");
         this.logRecords = new ArrayList<>(logRecords);
-        if (terminationType == null) {
-            throw new NullPointerException("Termination type cannot be null");
-        }
+        Objects.requireNonNull(invoice, "Termination type cannot be null");
         this.terminationType = terminationType;
         this.value = value;
-        if (valueType == null) {
-            throw new NullPointerException("Result value type cannot be null");
-        }
+        Objects.requireNonNull(invoice, "Result value type cannot be null");
         this.valueType = valueType;
         if (valueTypeMismatch()) {
             throw new IllegalArgumentException("Value type and actual result value mismatch");

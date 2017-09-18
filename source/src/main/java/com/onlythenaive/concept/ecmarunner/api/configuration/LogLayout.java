@@ -1,5 +1,7 @@
 package com.onlythenaive.concept.ecmarunner.api.configuration;
 
+import java.util.Objects;
+
 import com.onlythenaive.concept.ecmarunner.api.LogRecordType;
 import com.onlythenaive.concept.ecmarunner.convention.Immutable;
 import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
@@ -14,9 +16,7 @@ public final class LogLayout {
     public LogLayout(final boolean enabled,
                      final LogRecordType level) {
         this.enabled = enabled;
-        if (level == null) {
-            throw new NullPointerException("Log level cannot be null");
-        }
+        Objects.requireNonNull(level, "Log level cannot be null");
         this.level = level;
     }
 

@@ -1,5 +1,7 @@
 package com.onlythenaive.concept.ecmarunner.api;
 
+import java.util.Objects;
+
 import com.onlythenaive.concept.ecmarunner.convention.Immutable;
 import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
 
@@ -64,6 +66,7 @@ public enum LogRecordType {
      * @return <code>true</code> if this type has a higher precedence than another.
      */
     public boolean greaterThan(final LogRecordType another) {
+        Objects.requireNonNull(another, "Log record type cannot be null");
         return this.precedence > another.precedence;
     }
 }

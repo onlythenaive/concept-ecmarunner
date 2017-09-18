@@ -3,6 +3,7 @@ package com.onlythenaive.concept.ecmarunner.internal.nashorn;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
@@ -34,9 +35,7 @@ public final class SandboxNashornImpl implements Sandbox {
 
     @Override
     public Result execute(final Invoice invoice) {
-        if (invoice == null) {
-            throw new NullPointerException("Execution invoice cannot be null");
-        }
+        Objects.requireNonNull(invoice, "Execution invoice cannot be null");
         try {
             engine.eval(invoice.getScript());
         } catch (ScriptException exception) {
@@ -55,6 +54,7 @@ public final class SandboxNashornImpl implements Sandbox {
 
     @Override
     public <T> T inspect(SandboxInspector<T> inspector) {
+        Objects.requireNonNull(inspector, "Sandbox inspector cannot be null");
         return inspector.apply(engine);
     }
 }

@@ -4,6 +4,7 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.function.Consumer;
 
@@ -22,9 +23,7 @@ public final class ConsoleLogger implements Logger {
     private final List<LogRecord> records = new ArrayList<>();
 
     public ConsoleLogger(final LogLayout logLayout) {
-        if (logLayout == null) {
-            throw new NullPointerException("Log layout cannot be null");
-        }
+        Objects.requireNonNull(logLayout, "Log layout cannot be null");
         this.logLayout = logLayout;
     }
 
@@ -83,16 +82,12 @@ public final class ConsoleLogger implements Logger {
     }
 
     public void register(final Consumer<LogRecord> consumer) {
-        if (consumer == null) {
-            throw new NullPointerException("Log record consumer cannot be null");
-        }
+        requireNonNullConsumer(consumer);
         this.consumers.add(consumer);
     }
 
     public void unregister(final Consumer<LogRecord> consumer) {
-        if (consumer == null) {
-            throw new NullPointerException("Log record consumer cannot be null");
-        }
+        requireNonNullConsumer(consumer);
         this.consumers.remove(consumer);
     }
 
@@ -113,5 +108,9 @@ public final class ConsoleLogger implements Logger {
 
     private boolean enabledForType(final LogRecordType type) {
         return logLayout.isEnabled() && logLayout.getLevel().greaterThan(type);
+    }
+
+    private void requireNonNullConsumer(final Consumer<LogRecord> consumer) {
+        Objects.requireNonNull(consumer, "Log record consumer cannot be null");
     }
 }

@@ -1,5 +1,7 @@
 package com.onlythenaive.concept.ecmarunner.api.configuration;
 
+import java.util.Objects;
+
 import com.onlythenaive.concept.ecmarunner.convention.Immutable;
 import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
 
@@ -12,13 +14,9 @@ public final class Dependency {
 
     public Dependency(final String id,
                       final DependencyType type) {
-        if (id == null) {
-            throw new NullPointerException("Dependency ID cannot be null");
-        }
+        Objects.requireNonNull(id, "Dependency ID cannot be null");
         this.id = id;
-        if (type == null) {
-            throw new NullPointerException("Dependency type cannot be null");
-        }
+        Objects.requireNonNull(type, "Dependency type cannot be null");
         this.type = type;
         if (idTypeMismatch()) {
             throw new IllegalArgumentException("Dependency ID and type mismatch");

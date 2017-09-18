@@ -1,5 +1,7 @@
 package com.onlythenaive.concept.ecmarunner.api;
 
+import java.util.Objects;
+
 import com.onlythenaive.concept.ecmarunner.convention.Immutable;
 import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
 
@@ -42,18 +44,14 @@ public final class Invoice {
                    final String version) {
         this.description = description;
         this.restricted = restricted;
-        if (script == null) {
-            throw new NullPointerException("Execution script cannot be null");
-        }
+        Objects.requireNonNull(script, "Execution script cannot be null");
         this.script = script;
         this.timeoutEnabled = timeoutEnabled;
         if (timeoutInMilliseconds < 0) {
             throw new IllegalArgumentException("Execution timeout value cannot be negative");
         }
         this.timeoutInMilliseconds = timeoutInMilliseconds;
-        if (version == null) {
-            throw new NullPointerException("Execution version cannot be null");
-        }
+        Objects.requireNonNull(version, "Execution version cannot be null");
         if (version.isEmpty()) {
             throw new IllegalArgumentException("Execution version cannot be empty");
         }

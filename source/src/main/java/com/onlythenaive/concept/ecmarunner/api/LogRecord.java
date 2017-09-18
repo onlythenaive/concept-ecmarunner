@@ -1,6 +1,7 @@
 package com.onlythenaive.concept.ecmarunner.api;
 
 import java.time.Instant;
+import java.util.Objects;
 
 import com.onlythenaive.concept.ecmarunner.convention.Immutable;
 import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
@@ -32,17 +33,11 @@ public final class LogRecord {
     public LogRecord(final LogRecordType type,
                      final String value,
                      final Instant when) {
-        if (type == null) {
-            throw new NullPointerException("Log record type cannot be null");
-        }
+        Objects.requireNonNull(type, "Log record type cannot be null");
         this.type = type;
-        if (value == null) {
-            throw new NullPointerException("Log record value cannot be null");
-        }
+        Objects.requireNonNull(type, "Log record value cannot be null");
         this.value = value;
-        if (when == null) {
-            throw new NullPointerException("Log record registration timestamp cannot be null");
-        }
+        Objects.requireNonNull(when, "Log record registration timestamp cannot be null");
         this.when = when;
     }
 

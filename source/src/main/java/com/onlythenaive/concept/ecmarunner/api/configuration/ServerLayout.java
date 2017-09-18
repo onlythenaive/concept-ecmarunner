@@ -1,5 +1,7 @@
 package com.onlythenaive.concept.ecmarunner.api.configuration;
 
+import java.util.Objects;
+
 import com.onlythenaive.concept.ecmarunner.convention.Immutable;
 import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
 
@@ -10,9 +12,7 @@ public final class ServerLayout {
     private final ServerType type;
 
     public ServerLayout(final ServerType type) {
-        if (type == null) {
-            throw new NullPointerException("Server type cannot be null");
-        }
+        Objects.requireNonNull(type, "Server type cannot be null");
         this.type = type;
     }
 

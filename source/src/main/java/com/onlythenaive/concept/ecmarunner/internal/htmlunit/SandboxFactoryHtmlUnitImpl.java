@@ -3,6 +3,7 @@ package com.onlythenaive.concept.ecmarunner.internal.htmlunit;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Objects;
 
 import com.gargoylesoftware.htmlunit.StringWebResponse;
 import com.gargoylesoftware.htmlunit.WebClient;
@@ -23,9 +24,7 @@ public final class SandboxFactoryHtmlUnitImpl implements SandboxFactory {
     private final SandboxConfiguration configuration;
 
     public SandboxFactoryHtmlUnitImpl(final SandboxConfiguration configuration) {
-        if (configuration == null) {
-            throw new NullPointerException("Sandbox configuration cannot be null");
-        }
+        Objects.requireNonNull(configuration, "Sandbox configuration cannot be null");
         this.configuration = configuration;
     }
 

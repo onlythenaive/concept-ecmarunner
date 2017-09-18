@@ -1,5 +1,7 @@
 package com.onlythenaive.concept.ecmarunner.api;
 
+import java.util.Objects;
+
 import com.onlythenaive.concept.ecmarunner.api.configuration.EnvironmentType;
 import com.onlythenaive.concept.ecmarunner.api.configuration.SandboxConfiguration;
 import com.onlythenaive.concept.ecmarunner.api.configuration.SandboxConfigurationBuilder;
@@ -39,9 +41,7 @@ public final class SandboxFactoryProvider {
      * @see SandboxConfiguration
      */
     public static SandboxFactory factory(final SandboxConfiguration configuration) {
-        if (configuration == null) {
-            throw new NullPointerException("Sandbox configuration cannot be null");
-        }
+        Objects.requireNonNull(configuration, "Sandbox configuration cannot be null");
         final EnvironmentType type = environmentType(configuration);
         switch (type) {
             case BROWSER:
