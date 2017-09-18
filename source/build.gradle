@@ -15,6 +15,33 @@ version '1.0.0-SNAPSHOT'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+sourceSets {
+
+    acceptanceTest {
+        java.srcDir file('src/test-acceptance/java')
+        resources.srcDir file('src/test-acceptance/resources')
+    }
+
+    integrationTest {
+        java.srcDir file('src/test-integration/java')
+        resources.srcDir file('src/test-integration/resources')
+    }
+}
+
+task integrationTest(type: Test, dependsOn: 'test') {
+
+    testClassesDir = sourceSets.integrationTest.output.classesDir
+    classpath = sourceSets.integrationTest.runtimeClasspath
+}
+
+task acceptanceTest(type: Test, dependsOn: 'integrationTest') {
+
+    testClassesDir = sourceSets.acceptanceTest.output.classesDir
+    classpath = sourceSets.acceptanceTest.runtimeClasspath
+}
+
+check.dependsOn acceptanceTest
+
 repositories {
 
     jcenter()
@@ -29,6 +56,18 @@ dependencies {
     testCompile     group: 'junit',                     name: 'junit',                      version: '4.12'
     testCompile     group: 'org.powermock',             name: 'powermock-api-mockito2',     version: '1.7.3'
     testCompile     group: 'org.powermock',             name: 'powermock-module-junit4',    version: '1.7.3'
+
+    integrationTestCompile  sourceSets.main.output
+    integrationTestCompile  configurations.testCompile
+    integrationTestCompile  sourceSets.test.output
+    integrationTestRuntime  configurations.testRuntime
+
+    acceptanceTestCompile   sourceSets.main.output
+    acceptanceTestCompile   configurations.testCompile
+    acceptanceTestCompile   sourceSets.test.output
+    acceptanceTestCompile   configurations.testRuntime
+    acceptanceTestCompile   sourceSets.integrationTest.output
+    acceptanceTestCompile   configurations.integrationTestRuntime
 
     // @formatter:on
 }
