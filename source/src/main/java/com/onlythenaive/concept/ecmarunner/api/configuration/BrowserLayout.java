@@ -1,9 +1,11 @@
 package com.onlythenaive.concept.ecmarunner.api.configuration;
 
+import java.net.URL;
 import java.util.Objects;
 
 import com.onlythenaive.concept.ecmarunner.convention.Immutable;
 import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
+import com.onlythenaive.concept.ecmarunner.internal.utility.UrlHelper;
 
 @PublishedApi
 @Immutable
@@ -11,7 +13,7 @@ public final class BrowserLayout {
 
     private final String html;
     private final BrowserType type;
-    private final String url;
+    private final URL url;
 
     public BrowserLayout(final String html,
                          final BrowserType type,
@@ -21,7 +23,7 @@ public final class BrowserLayout {
         Objects.requireNonNull(type, "Browser layout type cannot be null");
         this.type = type;
         Objects.requireNonNull(url, "Browser layout URL cannot be null");
-        this.url = url;
+        this.url = UrlHelper.parseUrl(url);
     }
 
     public String getHtml() {
@@ -32,7 +34,7 @@ public final class BrowserLayout {
         return this.type;
     }
 
-    public String getUrl() {
+    public URL getUrl() {
         return this.url;
     }
 }

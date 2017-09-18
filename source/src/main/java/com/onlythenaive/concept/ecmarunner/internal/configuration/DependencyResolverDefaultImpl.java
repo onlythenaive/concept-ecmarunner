@@ -13,6 +13,7 @@ import com.onlythenaive.concept.ecmarunner.api.configuration.Dependency;
 import com.onlythenaive.concept.ecmarunner.api.configuration.DependencyResolver;
 import com.onlythenaive.concept.ecmarunner.convention.Immutable;
 import com.onlythenaive.concept.ecmarunner.convention.InternalImplementation;
+import com.onlythenaive.concept.ecmarunner.internal.utility.UrlHelper;
 
 @InternalImplementation
 @Immutable
@@ -58,7 +59,7 @@ public final class DependencyResolverDefaultImpl implements DependencyResolver {
 
     private String scriptCdn(final String resource) {
         try {
-            final URL url = new URL(resource);
+            final URL url = UrlHelper.parseUrl(resource);
             return IOUtils.toString(url, "UTF-8");
         } catch (final IOException exception) {
             throw new RuntimeException(exception);

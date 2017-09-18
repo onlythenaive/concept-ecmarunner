@@ -4,6 +4,7 @@ import java.util.Objects;
 
 import com.onlythenaive.concept.ecmarunner.convention.Immutable;
 import com.onlythenaive.concept.ecmarunner.convention.PublishedApi;
+import com.onlythenaive.concept.ecmarunner.internal.utility.UrlHelper;
 
 @PublishedApi
 @Immutable
@@ -32,8 +33,13 @@ public final class Dependency {
     }
 
     private boolean resourceTypeMatch() {
-        // TODO: implement resource and type verification
-        return true;
+        switch (this.getType()) {
+            case CDN:
+                return UrlHelper.validUrl(this.resource);
+            case NPM:
+            default:
+                return true;
+        }
     }
 
     private boolean resourceTypeMismatch() {

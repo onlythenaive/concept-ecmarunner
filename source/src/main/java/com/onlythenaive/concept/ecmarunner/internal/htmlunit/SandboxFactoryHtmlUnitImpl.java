@@ -1,7 +1,6 @@
 package com.onlythenaive.concept.ecmarunner.internal.htmlunit;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Objects;
 
@@ -42,8 +41,8 @@ public final class SandboxFactoryHtmlUnitImpl implements SandboxFactory {
         }
     }
 
-    private StringWebResponse response() throws MalformedURLException {
-        final URL url = new URL(this.configuration.getBrowserLayout().getUrl());
+    private StringWebResponse response() {
+        final URL url = this.configuration.getBrowserLayout().getUrl();
         final String html = this.configuration.getBrowserLayout().getHtml();
         return new StringWebResponse(html, url);
     }
